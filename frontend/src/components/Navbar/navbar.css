@@ -1,0 +1,389 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
+
+/* Navbar styles */
+.navbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 80px;
+  display: flex;
+  align-items: center;
+  padding: 0 40px;
+  z-index: 100;
+  transition: all 0.5s ease;
+}
+
+.navbar.navbarScrolled {
+  background-color: rgba(28, 29, 32, 0.9);
+  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 5px 30px rgba(0, 0, 0, 0.1);
+}
+
+.navbarContainer {
+  width: 100%;
+  max-width: 1600px;
+  margin: 0 auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Logo styles */
+.navbarContainerLeft {
+  display: flex;
+  align-items: center;
+}
+
+.navbarContainerLeftLogoMagnetic {
+  cursor: pointer;
+  position: relative;
+  font-size: 18px;
+  color: #ffffff;
+  font-weight: 500;
+  letter-spacing: -0.03em;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  width: 140px; /* Initial width to show "Code by Jakub" */
+  height: 25px;
+  overflow: hidden; /* Hide the overflowing text */
+  transition: width 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Smooth width transition */
+}
+
+/* Expand container on hover to show full "Stankiewicz" */
+.navbarContainerLeftLogoMagnetic:hover {
+  width: 180px; /* Optimized width to accommodate "Stankiewicz" text perfectly */
+}
+
+.navbarContainerLeftLogoMagneticCodePartCLetter {
+  display: inline-block;
+  transform-origin: center;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Matching timing with other animations */
+  flex-shrink: 0; /* Prevent shrinking */
+}
+
+.navbarContainerLeftLogoMagneticTextSlider {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.navbarContainerLeftLogoMagneticTextSliderContent {
+  display: block;
+  white-space: nowrap;
+  transition: transform 0.8s cubic-bezier(0.23, 1, 0.32, 1); /* Matching timing with container width */
+  transform: translateX(0);
+}
+
+/* Logo Hover Animations */
+.navbarContainerLeftLogoMagnetic:hover .navbarContainerLeftLogoMagneticCodePartCLetter {
+  transform: rotate(360deg);
+}
+
+/* Slide text to show only "Stankiewicz" on hover */
+.navbarContainerLeftLogoMagnetic:hover .navbarContainerLeftLogoMagneticTextSliderContent {
+  transform: translateX(-80px); /* Precisely calculated to show "Stankiewicz" in the expanded container */
+}
+
+/* Navigation links */
+.navbarContainerRight {
+  display: flex;
+  align-items: center;
+}
+
+.navbarContainerRightContainerLinks {
+  display: flex;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+}
+
+.navbarContainerRightContainerLinksItem {
+  margin-left: 40px;
+  position: relative;
+}
+
+.navbarContainerRightContainerLinksItemLink {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  position: relative;
+  padding: 5px 0;
+  display: inline-block;
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+.navbarContainerRightContainerLinksItemLinkText {
+  position: relative;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.navbarContainerRightContainerLinksItemLinkDot {
+  position: absolute;
+  left: 50%;
+  bottom: -8px;
+  width: 5px;
+  height: 5px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  /* transform: translateX(-50%) scale(0); */
+  opacity: 0;
+  /* transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1); */
+}
+
+/* Navigation Hover Effects */
+.navbarContainerRightContainerLinksItem:hover .navbarContainerRightContainerLinksItemLinkText {
+  transform: translateY(-5px);
+}
+
+.navbarContainerRightContainerLinksItem:hover .navbarContainerRightContainerLinksItemLinkDot {
+  transform: translateX(-50%) scale(1);
+  opacity: 1;
+}
+
+/* Hamburger menu (visible when scrolled) */
+.navbarContainerMenuToggle {
+  display: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #1c1d20;
+  border-radius: 50%;
+  align-items: center;
+  justify-content: center;
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.5s ease, transform 0.5s ease;
+}
+
+.navbarContainerMenuToggle.navbarContainerMenuToggleVisible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.navbarContainerMenuToggleHamburger {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.navbarContainerMenuToggleHamburger span {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+  transform-origin: center;
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+.navbarContainerMenuToggleHamburger.navbarContainerMenuToggleHamburgerActive span:first-child {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+
+.navbarContainerMenuToggleHamburger.navbarContainerMenuToggleHamburgerActive span:last-child {
+  transform: rotate(-45deg) translate(5px, -5px);
+}
+
+/* Mobile menu */
+.navbarMobileMenu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: #1c1d20;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  transform: translateX(100%);
+  transition: transform 0.5s cubic-bezier(0.19, 1, 0.22, 1);
+  overflow-y: auto;
+}
+
+.navbarMobileMenu.navbarMobileMenuOpen {
+  transform: translateX(0);
+}
+
+.navbarMobileMenuContainer {
+  padding: 40px;
+  height: 100%;
+}
+
+.navbarMobileMenuContainerHeader {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 40px;
+}
+
+.navbarMobileMenuContainerHeader span {
+  color: #777;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+}
+
+.navbarMobileMenuContainerHeaderCloseMenu {
+  background: none;
+  border: none;
+  cursor: pointer;
+  width: 50px;
+  height: 50px;
+  background-color: #4646f9;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbarMobileMenuContainerHeaderCloseMenuIcon {
+  position: relative;
+  width: 20px;
+  height: 20px;
+}
+
+.navbarMobileMenuContainerHeaderCloseMenuIcon:before, .navbarMobileMenuContainerHeaderCloseMenuIcon:after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background-color: #ffffff;
+}
+
+.navbarMobileMenuContainerHeaderCloseMenuIcon:before {
+  transform: rotate(45deg);
+}
+
+.navbarMobileMenuContainerHeaderCloseMenuIcon:after {
+  transform: rotate(-45deg);
+}
+
+.navbarMobileMenuContainerContent {
+  display: flex;
+  flex-direction: column;
+  height: calc(100% - 80px);
+}
+
+.navbarMobileMenuContainerContentLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  margin-bottom: 60px;
+}
+
+.navbarMobileMenuContainerContentLinksItem {
+  margin-bottom: 20px;
+}
+
+.navbarMobileMenuContainerContentLinksItemLink {
+  display: flex;
+  align-items: center;
+  font-size: 32px;
+  color: #ffffff;
+  text-decoration: none;
+  transition: opacity 0.3s ease;
+}
+
+.navbarMobileMenuContainerContentLinksItemLink:hover {
+  opacity: 0.7;
+}
+
+.navbarMobileMenuContainerContentLinksItemLinkDot {
+  width: 8px;
+  height: 8px;
+  background-color: #ffffff;
+  border-radius: 50%;
+  margin-right: 10px;
+  display: inline-block;
+}
+
+.navbarMobileMenuContainerContentSocials {
+  margin-top: auto;
+}
+
+.navbarMobileMenuContainerContentSocials h5 {
+  color: #777;
+  font-size: 14px;
+  font-weight: 600;
+  letter-spacing: 1px;
+  margin-bottom: 20px;
+}
+
+.navbarMobileMenuContainerContentSocialsLinks {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.navbarMobileMenuContainerContentSocialsLinks li {
+  margin-right: 20px;
+  margin-bottom: 10px;
+}
+
+.navbarMobileMenuContainerContentSocialsLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: opacity 0.3s ease;
+}
+
+.navbarMobileMenuContainerContentSocialsLinks a:hover {
+  opacity: 0.7;
+}
+
+/* Media queries */
+@media (max-width: 768px) {
+  .navbar {
+    padding: 0 20px;
+    height: 70px;
+  }
+  
+  .navbarContainerRightContainerLinks {
+    display: none;
+  }
+  
+  .navbarContainerMenuToggle {
+    display: flex;
+    opacity: 1;
+    transform: translateY(0);
+  }
+  
+  .navbarContainerLeftLogoMagnetic {
+    font-size: 16px;
+  }
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+body {
+  background-color: #1c1d20;
+  color: #ffffff;
+  overflow-x: hidden;
+}
+
+/* Additional magnetic hover effects - only for magnetic movement, basic hover in CSS above */
+.navbarContainerRightContainerLinksItemLinkMagnetic {
+  position: relative;
+  display: inline-block;
+  transition: transform 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
