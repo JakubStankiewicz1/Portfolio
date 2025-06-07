@@ -1,0 +1,172 @@
+/* HomeTech Section */
+.homeTech {
+  position: relative;
+  width: 100%;
+  background: #ffffff;
+  padding: 100px 0;
+  overflow: hidden;
+}
+
+.homeTechContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* Header */
+.homeTechHeader {
+  margin-bottom: 60px;
+  animation: slideUpFade 1s ease-out both;
+}
+
+.homeTechTitle {
+  font-size: clamp(36px, 5vw, 48px);
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.1;
+}
+
+/* Content */
+.homeTechContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.homeTechCategory {
+  animation: slideUpFade 1s ease-out both;
+}
+
+.homeTechCategoryTitle {
+  font-size: 20px;
+  font-weight: 500;
+  color: #1a1a1a;
+  margin: 0 0 20px 0;
+}
+
+/* Grid */
+.homeTechGrid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+/* Cards - Dark style with magnetic effect */
+.homeTechCard {
+  position: relative;
+  background: #1a1a1a;
+  border-radius: 8px;
+  padding: 18px 24px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  cursor: pointer;
+  animation: slideUpFade 1s ease-out both;
+  border: 1px solid #2a2a2a;  min-width: -webkit-fill-available; /* Samsung Internet support */
+  min-width: fit-content;
+  /* transition: box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1),
+              border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1); */
+}
+
+.homeTechCardContent {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  /* Remove transition to let GSAP handle smooth animations */
+}
+
+/* Hover effect matching navbar - smooth sliding up with magnetic attraction */
+/* .homeTechCard:hover {
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+  border-color: #3a3a3a;
+} */
+
+.homeTechCardIcon {
+  /* width: 20px; */
+  height: 24px;
+  width: auto;
+  object-fit: contain;
+  /* Remove transition to let GSAP handle smooth animations */
+}
+
+.homeTechCardName {
+  font-size: 16px;
+  font-weight: 500;
+  color: #ffffff;
+  margin: 0;
+  white-space: nowrap;
+  /* Remove transition to let GSAP handle smooth animations */
+}
+
+.homeTechCard:hover .homeTechCardName {
+  color: #f0f0f0;
+}
+
+/* Animations */
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .homeTech {
+    padding: 80px 0;
+  }
+
+  .homeTechContainer {
+    padding: 0 20px;
+  }
+
+  .homeTechHeader {
+    margin-bottom: 40px;
+  }
+
+  .homeTechContent {
+    gap: 30px;
+  }
+
+  .homeTechGrid {
+    gap: 10px;
+  }
+
+  .homeTechCard {
+    padding: 12px 16px;
+    gap: 10px;
+  }
+  .homeTechCardIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .homeTechCardName {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .homeTechGrid {
+    gap: 8px;
+  }
+
+  .homeTechCard {
+    padding: 10px 14px;
+    font-size: 14px;
+  }
+  .homeTechCardIcon {
+    width: 16px;
+    height: 16px;
+  }
+
+  .homeTechCardName {
+    font-size: 13px;
+  }
+}
