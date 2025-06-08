@@ -119,6 +119,7 @@ const HomeTech = () => {
     Others: [
       { name: "MySQL", icon: assets.javaLogo },
       { name: "Git", icon: assets.gitLogo },
+      
     ],
     
   };
