@@ -1,6 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 import { gsap } from 'gsap';
 import assets from '../../assets/assets.js';
+import Orb from '../Orb/Orb.jsx';
 import "./homeTech.css";
 
 const HomeTech = () => {
@@ -97,13 +98,12 @@ const HomeTech = () => {
       { name: "Python", icon: assets.javaLogo },
       { name: "Java", icon: assets.javaLogo },
       { name: "JavaScript", icon: assets.javaLogo }
-    ],
-    Frontend: [
+    ],    Frontend: [
       { name: "React", icon: assets.javaLogo },
       { name: "HTML5", icon: assets.javaLogo },
       { name: "CSS3", icon: assets.javaLogo },
       { name: "Tailwind CSS", icon: assets.reactLogo },
-      { name: "Vite", icon: assets.javaLogo },,
+      { name: "Vite", icon: assets.javaLogo },
     ],
     Backend: [
       { name: "Spring Boot", icon: assets.javaLogo },
@@ -128,41 +128,56 @@ const HomeTech = () => {
         <div className="homeTechHeader">
           <h2 className="homeTechTitle">My Skills</h2>
         </div>
-        
-        <div className="homeTechContent">
-          {Object.entries(techStacks).map(([category, technologies], categoryIndex) => (
-            <div key={category} className="homeTechCategory" style={{animationDelay: `${categoryIndex * 0.1}s`}}>              <h3 className="homeTechCategoryTitle">{category}</h3>
-              <div className="homeTechGrid">
-                {technologies.map((tech, index) => {
-                  const cardIndex = categoryIndex * 20 + index; // Unique index for each card
-                  return (
-                    <div 
-                      key={tech.name} 
-                      className="homeTechCard homeTechCardMagnetic"
-                      style={{animationDelay: `${(categoryIndex * 0.1) + (index * 0.05)}s`}}
-                      ref={el => cardsRef.current[cardIndex] = el}
-                    >                      <div 
-                        className="homeTechCardContent"
-                        ref={el => contentsRef.current[cardIndex] = el}
-                      >                        <img 
-                          src={tech.icon}
-                          alt={tech.name}
-                          className="homeTechCardIcon"
-                          ref={el => iconsRef.current[cardIndex] = el}
-                        />
-                        <span 
-                          className="homeTechCardName"
-                          ref={el => namesRef.current[cardIndex] = el}
+          <div className="homeTechContent">
+          <div className="homeTechMainLayout">
+            <div className="homeTechSkillsSection">
+              {Object.entries(techStacks).map(([category, technologies], categoryIndex) => (
+                <div key={category} className="homeTechCategory" style={{animationDelay: `${categoryIndex * 0.1}s`}}>
+                  <h3 className="homeTechCategoryTitle">{category}</h3>
+                  <div className="homeTechGrid">
+                    {technologies.map((tech, index) => {
+                      const cardIndex = categoryIndex * 20 + index; // Unique index for each card
+                      return (
+                        <div 
+                          key={tech.name} 
+                          className="homeTechCard homeTechCardMagnetic"
+                          style={{animationDelay: `${(categoryIndex * 0.1) + (index * 0.05)}s`}}
+                          ref={el => cardsRef.current[cardIndex] = el}
                         >
-                          {tech.name}
-                        </span>
-                      </div>
-                    </div>
-                  );
-                })}
+                          <div 
+                            className="homeTechCardContent"
+                            ref={el => contentsRef.current[cardIndex] = el}
+                          >
+                            <img 
+                              src={tech.icon}
+                              alt={tech.name}
+                              className="homeTechCardIcon"
+                              ref={el => iconsRef.current[cardIndex] = el}
+                            />
+                            <span 
+                              className="homeTechCardName"
+                              ref={el => namesRef.current[cardIndex] = el}
+                            >
+                              {tech.name}
+                            </span>
+                          </div>
+                        </div>
+                      );
+                    })}
+                  </div>
+                </div>
+              ))}
+            </div>
+              <div className="homeTechAboutSection">
+              <div className="homeTechAboutContent">                <div className="homeTechOrbContainer">
+                  <Orb hue={200} hoverIntensity={0.3} rotateOnHover={true} />
+                  <div className="homeTechAboutOverlay">
+                    <h3 className="homeTechAboutTitle">About Me</h3>
+                  </div>
+                </div>
               </div>
             </div>
-          ))}
+          </div>
         </div>
       </div>
     </section>

@@ -35,6 +35,24 @@
   gap: 40px;
 }
 
+.homeTechMainLayout {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 60px;
+  align-items: start;
+}
+
+.homeTechSkillsSection {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.homeTechAboutSection {
+  position: sticky;
+  top: 100px;
+}
+
 .homeTechCategory {
   animation: slideUpFade 1s ease-out both;
 }
@@ -104,6 +122,51 @@
   color: #f0f0f0;
 }
 
+/* About Me Section */
+.homeTechAboutContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 30px;
+}
+
+.homeTechOrbContainer {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.homeTechAboutOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  pointer-events: none;
+  z-index: 10;
+}
+
+.homeTechAboutTitle {
+  font-size: 24px;
+  font-weight: 600;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.homeTechOrbContainer:hover .homeTechAboutTitle {
+  transform: scale(1.05);
+  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+}
+
 /* Animations */
 @keyframes slideUpFade {
   0% {
@@ -117,6 +180,26 @@
 }
 
 /* Responsive Design */
+@media (max-width: 1024px) {
+  .homeTechMainLayout {
+    grid-template-columns: 1fr;
+    gap: 40px;
+  }
+  
+  .homeTechAboutSection {
+    position: static;
+    order: -1;
+  }
+    .homeTechOrbContainer {
+    width: 250px;
+    height: 250px;
+  }
+  
+  .homeTechAboutTitle {
+    font-size: 22px;
+  }
+}
+
 @media (max-width: 768px) {
   .homeTech {
     padding: 80px 0;
@@ -131,6 +214,14 @@
   }
 
   .homeTechContent {
+    gap: 30px;
+  }
+  
+  .homeTechMainLayout {
+    gap: 30px;
+  }
+  
+  .homeTechSkillsSection {
     gap: 30px;
   }
 
@@ -150,6 +241,14 @@
   .homeTechCardName {
     font-size: 14px;
   }
+    .homeTechOrbContainer {
+    width: 200px;
+    height: 200px;
+  }
+  
+  .homeTechAboutTitle {
+    font-size: 18px;
+  }
 }
 
 @media (max-width: 480px) {
@@ -168,5 +267,13 @@
 
   .homeTechCardName {
     font-size: 13px;
+  }
+    .homeTechOrbContainer {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .homeTechAboutTitle {
+    font-size: 16px;
   }
 }
