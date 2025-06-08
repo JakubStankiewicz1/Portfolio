@@ -1,0 +1,296 @@
+.homeContactMe {
+  background-color: #1a1a1a;
+  color: white;
+  min-height: 100vh;
+  padding: 0;
+  position: relative;
+  overflow: hidden;
+}
+
+.homeContactMeContainer {
+  max-width: 1400px;
+  margin: 0 auto;
+  padding: 80px 60px 40px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  position: relative;
+}
+
+.homeContactMeLeft {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 80px;
+}
+
+.profileSection {
+  display: flex;
+  align-items: flex-start;
+  gap: 40px;
+}
+
+.profileImage {
+  width: 80px;
+  height: 80px;
+  border-radius: 50%;
+  object-fit: cover;
+  flex-shrink: 0;
+}
+
+.mainText {
+  display: flex;
+  flex-direction: column;
+  gap: -10px;
+}
+
+.mainText h1 {
+  font-size: clamp(4rem, 8vw, 8rem);
+  font-weight: 400;
+  line-height: 0.9;
+  margin: 0;
+  letter-spacing: -0.02em;
+  color: #ffffff;
+}
+
+.contactInfo {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.contactButton {
+  background: transparent;
+  border: 1px solid #333;
+  border-radius: 50px;
+  padding: 16px 32px;
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  white-space: nowrap;
+}
+
+.contactButton:hover {
+  background-color: #333;
+  border-color: #555;
+  transform: translateY(-2px);
+}
+
+.homeContactMeRight {
+  position: absolute;
+  top: 50%;
+  right: 60px;
+  transform: translateY(-50%);
+}
+
+.getInTouchButton {
+  width: 180px;
+  height: 180px;
+  background-color: #4f46e5;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  gap: 8px;
+}
+
+.getInTouchButton:hover {
+  transform: scale(1.05);
+  background-color: #5b52e8;
+}
+
+.getInTouchButton span {
+  color: white;
+  font-size: 16px;
+  font-weight: 500;
+}
+
+.arrow {
+  font-size: 20px;
+  color: white;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.getInTouchButton:hover .arrow {
+  transform: rotate(45deg);
+}
+
+.homeContactMeFooter {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+  padding-top: 40px;
+  border-top: 1px solid #333;
+}
+
+.footerLeft {
+  display: flex;
+  gap: 60px;
+}
+
+.versionInfo,
+.timeInfo {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.label {
+  font-size: 12px;
+  color: #888;
+  font-weight: 500;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+}
+
+.value {
+  font-size: 14px;
+  color: #ffffff;
+  font-weight: 400;
+}
+
+.footerRight {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 12px;
+}
+
+.socialLinks {
+  display: flex;
+  gap: 30px;
+  align-items: center;
+}
+
+.socialLinks a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 14px;
+  transition: all 0.3s ease;
+  position: relative;
+}
+
+.socialLinks a:hover {
+  color: #4f46e5;
+}
+
+.socialLinks a::after {
+  content: '';
+  position: absolute;
+  bottom: -4px;
+  left: 0;
+  width: 0;
+  height: 1px;
+  background-color: #4f46e5;
+  transition: width 0.3s ease;
+}
+
+.socialLinks a:hover::after {
+  width: 100%;
+}
+
+/* Responsive Design */
+@media (max-width: 1200px) {
+  .homeContactMeContainer {
+    padding: 60px 40px 30px;
+  }
+  
+  .homeContactMeRight {
+    right: 40px;
+  }
+  
+  .getInTouchButton {
+    width: 150px;
+    height: 150px;
+  }
+  
+  .mainText h1 {
+    font-size: clamp(3rem, 7vw, 6rem);
+  }
+}
+
+@media (max-width: 768px) {
+  .homeContactMeContainer {
+    padding: 40px 20px 20px;
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .profileSection {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  
+  .profileImage {
+    align-self: center;
+  }
+  
+  .contactInfo {
+    flex-direction: column;
+    gap: 20px;
+    align-items: stretch;
+  }
+  
+  .homeContactMeRight {
+    position: static;
+    transform: none;
+    margin: 40px auto;
+    text-align: center;
+  }
+  
+  .homeContactMeFooter {
+    flex-direction: column;
+    gap: 30px;
+    align-items: flex-start;
+  }
+  
+  .footerLeft {
+    gap: 30px;
+  }
+  
+  .footerRight {
+    align-items: flex-start;
+  }
+  
+  .socialLinks {
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+  
+  .mainText h1 {
+    font-size: clamp(2.5rem, 8vw, 4rem);
+  }
+}
+
+@media (max-width: 480px) {
+  .homeContactMeContainer {
+    padding: 30px 15px 15px;
+  }
+  
+  .getInTouchButton {
+    width: 120px;
+    height: 120px;
+  }
+  
+  .getInTouchButton span {
+    font-size: 14px;
+  }
+  
+  .socialLinks {
+    gap: 15px;
+  }
+  
+  .socialLinks a {
+    font-size: 13px;
+  }
+}
