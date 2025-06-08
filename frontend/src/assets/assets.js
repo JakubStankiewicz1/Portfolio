@@ -29,6 +29,7 @@ import jiraLogo from './jira.png';
 
 import gitLogo from './git.png';
 
+import myPhoto from './myPhoto.jpg';
 
 export default {
     javaLogo,
@@ -46,5 +47,6 @@ export default {
     githubLogo,
     figmaLogo,
     jiraLogo,
-    gitLogo
+    gitLogo,
+    myPhoto
 }
