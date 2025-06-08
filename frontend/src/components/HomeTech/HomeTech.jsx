@@ -95,29 +95,30 @@ const HomeTech = () => {
   }, []);
   const techStacks = {
     Languages: [
-      { name: "Python", icon: assets.javaLogo },
+      { name: "Python", icon: assets.pythonLogo },
       { name: "Java", icon: assets.javaLogo },
-      { name: "JavaScript", icon: assets.javaLogo }
+      { name: "JavaScript", icon: assets.javascriptLogo }
     ],    Frontend: [
-      { name: "React", icon: assets.javaLogo },
-      { name: "HTML5", icon: assets.javaLogo },
-      { name: "CSS3", icon: assets.javaLogo },
-      { name: "Tailwind CSS", icon: assets.reactLogo },
-      { name: "Vite", icon: assets.javaLogo },
+      { name: "React", icon: assets.reactLogo },
+      { name: "HTML5", icon: assets.htmlLogo },
+      { name: "CSS3", icon: assets.cssLogo },
+      { name: "Tailwind CSS", icon: assets.tailwindLogo },
+      { name: "Vite", icon: assets.viteLogo },
     ],
     Backend: [
-      { name: "Spring Boot", icon: assets.javaLogo },
-      { name: "Flask", icon: assets.javaLogo },
+      { name: "Spring Boot", icon: assets.springBootLogo },
+      { name: "Flask", icon: assets.flaskLogo },
     ],
     Tools: [
-      { name: "Visual Studio Code", icon: assets.javaLogo },
-      { name: "Postman", icon: assets.javaLogo },
-      { name: "GitHub", icon: assets.javaLogo },
-      { name: "Figma", icon: assets.javaLogo },
+      { name: "Visual Studio Code", icon: assets.vsCode },
+      { name: "Postman", icon: assets.postmanLogo },
+      { name: "GitHub", icon: assets.githubLogo },
+      { name: "Figma", icon: assets.figmaLogo },
+      { name: "Jira", icon: assets.jiraLogo },
     ],
     Others: [
       { name: "MySQL", icon: assets.javaLogo },
-      { name: "Git", icon: assets.javaLogo },
+      { name: "Git", icon: assets.gitLogo },
     ],
     
   };

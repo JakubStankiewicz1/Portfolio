@@ -74,7 +74,7 @@
 /* Cards - Dark style with magnetic effect */
 .homeTechCard {
   position: relative;
-  background: #1a1a1a;
+  /* background: #1a1a1a; */
   border-radius: 8px;
   padding: 18px 24px;
   display: flex;
@@ -112,15 +112,15 @@
 .homeTechCardName {
   font-size: 16px;
   font-weight: 500;
-  color: #ffffff;
+  color: #000;
   margin: 0;
   white-space: nowrap;
   /* Remove transition to let GSAP handle smooth animations */
 }
 
-.homeTechCard:hover .homeTechCardName {
+/* .homeTechCard:hover .homeTechCardName {
   color: #f0f0f0;
-}
+} */
 
 /* About Me Section */
 .homeTechAboutContent {
