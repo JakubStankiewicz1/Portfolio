@@ -1,9 +1,11 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
+import VariableProximity from '../VariableProximity/VariableProximity';
 import './homeContactMe.css';
 import profilePhoto from '../../assets/myPhoto.jpg';
 
 const HomeContactMe = () => {
   const [currentTime, setCurrentTime] = useState('');
+  const contactRef = useRef(null);
 
   useEffect(() => {
     const updateTime = () => {
@@ -26,25 +28,43 @@ const HomeContactMe = () => {
 
     // Cleanup interval on component unmount
     return () => clearInterval(interval);
-  }, []);
-  return (
-    <div className='homeContactMe'>
+  }, []);  return (
+    <div className='homeContactMe' ref={contactRef}>
         <div className="homeContactMeContainer">
-            <div className="homeContactMeLeft">
-                <div className="profileSection">
+            <div className="homeContactMeLeft">                <div className="profileSection">
                     <img src={profilePhoto} alt="Profile" className="profileImage" />
                     <div className="mainText">
-                        <h1>Let's work</h1>
-                        <h1>together</h1>
+                        <h1>
+                            <VariableProximity
+                                label="Let's work"
+                                fromFontVariationSettings="'wght' 400, 'opsz' 12"
+                                toFontVariationSettings="'wght' 800, 'opsz' 144"
+                                containerRef={contactRef}
+                                radius={150}
+                                falloff="exponential"
+                                className="homeContactMeVariableProximity"
+                            />
+                        </h1>
+                        <h1>
+                            <VariableProximity
+                                label="together"
+                                fromFontVariationSettings="'wght' 400, 'opsz' 12"
+                                toFontVariationSettings="'wght' 800, 'opsz' 144"
+                                containerRef={contactRef}
+                                radius={150}
+                                falloff="exponential"
+                                className="homeContactMeVariableProximity"
+                            />
+                        </h1>
                     </div>
                 </div>
                 
                 <div className="contactInfo">
-                    <a href="mailto:info@dennissnellenberg.com" className="contactButton">
-                        info@dennissnellenberg.com
+                    <a href="mailto:stankiewicz.kuba152@gmail.com" className="contactButton">
+                        stankiewicz.kuba152@gmail.com
                     </a>
-                    <a href="tel:+31627847430" className="contactButton">
-                        +31 6 27 84 74 30
+                    <a href="tel:+48690001083" className="contactButton">
+                        +48 690 001 083
                     </a>
                 </div>
             </div>
@@ -60,7 +80,7 @@ const HomeContactMe = () => {
                 <div className="footerLeft">
                     <div className="versionInfo">
                         <span className="label">VERSION</span>
-                        <span className="value">2022 © Edition</span>
+                        <span className="value">2025 © Edition</span>
                     </div>                    <div className="timeInfo">
                         <span className="label">LOCAL TIME</span>
                         <span className="value">{currentTime}</span>
@@ -70,11 +90,11 @@ const HomeContactMe = () => {
                 <div className="footerRight">
                     <span className="label">SOCIALS</span>
                     <div className="socialLinks">
-                        <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer">Awwwards</a>
-                        <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a>
-                        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a>
-                        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer">LinkedIn</a>
-                        <a href="https://github.com" target="_blank" rel="noopener noreferrer">GitHub</a>
+                        {/* <a href="https://awwwards.com" target="_blank" rel="noopener noreferrer">Awwwards</a> */}
+                        {/* <a href="https://instagram.com" target="_blank" rel="noopener noreferrer">Instagram</a> */}
+                        {/* <a href="https://twitter.com" target="_blank" rel="noopener noreferrer">Twitter</a> */}
+                        <a href="https://www.linkedin.com/in/kuba-stankiewicz-258381300/" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        <a href="https://github.com/JakubStankiewicz1" target="_blank" rel="noopener noreferrer">GitHub</a>
                     </div>
                 </div>
             </div>

@@ -31,6 +31,11 @@ import gitLogo from './git.png';
 
 import myPhoto from './myPhoto.jpg';
 
+import codingIcon from "./coding.png";
+
+
+import test from './test.png';
+
 export default {
     javaLogo,
     reactLogo,
@@ -48,5 +53,7 @@ export default {
     figmaLogo,
     jiraLogo,
     gitLogo,
-    myPhoto
+    myPhoto,
+    codingIcon,
+    test
 }
