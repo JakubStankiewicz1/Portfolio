@@ -2,29 +2,57 @@
 .homeTech {
   position: relative;
   width: 100%;
-  background: #ffffff;
-  padding: 100px 0;
+  /* height: 100vh; */
+  height: 100%;
+  background: #F5F5F5;
+  display: flex;
+  align-items: center;
+  justify-content: center;
   overflow: hidden;
+
+  padding-top: 55px;
+
+  padding-bottom: 50px;
+}
+
+.homeTech::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: 
+    radial-gradient(circle at 15% 25%, rgba(0, 0, 0, 0.1) 0%, transparent 50%),
+    radial-gradient(circle at 85% 75%, rgba(255, 255, 255, 0.05) 0%, transparent 50%);
+  z-index: 1;
 }
 
 .homeTechContainer {
-  max-width: 1200px;
+  position: relative;
+  z-index: 2;
+  width: 80%;
+  max-width: 1400px;
   margin: 0 auto;
-  padding: 0 40px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
 }
 
 /* Header */
 .homeTechHeader {
-  margin-bottom: 60px;
+  text-align: center;
+  margin-bottom: 50px;
   animation: slideUpFade 1s ease-out both;
 }
 
 .homeTechTitle {
-  font-size: clamp(36px, 5vw, 48px);
-  font-weight: 600;
+  font-size: clamp(32px, 4vw, 42px);
+  font-weight: 700;
   color: #1a1a1a;
   margin: 0;
-  letter-spacing: -0.02em;
+  letter-spacing: -0.01em;
   line-height: 1.1;
 }
 
@@ -32,25 +60,13 @@
 .homeTechContent {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
-
-.homeTechMainLayout {
-  display: grid;
-  grid-template-columns: 2fr 1fr;
-  gap: 60px;
-  align-items: start;
+  gap: 30px;
 }
 
 .homeTechSkillsSection {
   display: flex;
   flex-direction: column;
-  gap: 40px;
-}
-
-.homeTechAboutSection {
-  position: sticky;
-  top: 100px;
+  gap: 30px;
 }
 
 .homeTechCategory {
@@ -58,113 +74,101 @@
 }
 
 .homeTechCategoryTitle {
-  font-size: 20px;
-  font-weight: 500;
+  font-size: 22px;
+  font-weight: 700;
   color: #1a1a1a;
-  margin: 0 0 20px 0;
+  margin: 0 0 16px 0;
+  text-align: left;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
 /* Grid */
 .homeTechGrid {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 12px;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(365px, 365px));
+  gap: 16px;
+  max-width: 100%;
+  justify-content: flex-start;
 }
 
-/* Cards - Dark style with magnetic effect */
+/* Cards - Light theme matching the background */
 .homeTechCard {
   position: relative;
-  /* background: #1a1a1a; */
-  border-radius: 8px;
-  padding: 18px 24px;
+  background: rgba(255, 255, 255, 0.8);
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  /* border-radius: 12px; */
+  padding: 20px;
   display: flex;
   align-items: center;
-  gap: 12px;
+  gap: 14px;
   cursor: pointer;
   animation: slideUpFade 1s ease-out both;
-  border: 1px solid #2a2a2a;  min-width: -webkit-fill-available; /* Samsung Internet support */
-  min-width: fit-content;
-  /* transition: box-shadow 0.3s cubic-bezier(0.19, 1, 0.22, 1),
-              border-color 0.3s cubic-bezier(0.19, 1, 0.22, 1); */
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);  -webkit-backdrop-filter: blur(10px);
+  backdrop-filter: blur(10px);
+  width: 365px;
+  min-width: 365px;
+  max-width: 365px;
+  /* box-shadow: 
+    0 4px 16px rgba(0, 0, 0, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.8); */
+}
+
+.homeTechCard::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+  border-radius: 12px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  z-index: 1;
+}
+
+.homeTechCard:hover::before {
+  opacity: 1;
+}
+
+.homeTechCard:hover {
+  /* transform: translateY(-4px); */
+  /* border-color: rgba(0, 0, 0, 0.2); */
+  /* box-shadow: 
+    0 8px 25px rgba(0, 0, 0, 0.15),
+    0 0 0 1px rgba(0, 0, 0, 0.1); */
 }
 
 .homeTechCardContent {
   display: flex;
   align-items: center;
-  gap: 12px;
-  /* Remove transition to let GSAP handle smooth animations */
+  gap: 16px;
+  z-index: 1;
 }
 
-/* Hover effect matching navbar - smooth sliding up with magnetic attraction */
-/* .homeTechCard:hover {
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-  border-color: #3a3a3a;
-} */
-
 .homeTechCardIcon {
-  /* width: 20px; */
-  height: 24px;
+  height: 28px;
   width: auto;
   object-fit: contain;
-  /* Remove transition to let GSAP handle smooth animations */
+  transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.homeTechCard:hover .homeTechCardIcon {
+  transform: scale(1.1);
 }
 
 .homeTechCardName {
-  font-size: 16px;
-  font-weight: 500;
-  color: #000;
+  font-size: 17px;
+  font-weight: 600;
+  color: #1a1a1a;
   margin: 0;
   white-space: nowrap;
-  /* Remove transition to let GSAP handle smooth animations */
+  transition: color 0.3s cubic-bezier(0.19, 1, 0.22, 1);
 }
 
-/* .homeTechCard:hover .homeTechCardName {
-  color: #f0f0f0;
-} */
-
-/* About Me Section */
-.homeTechAboutContent {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 30px;
-}
-
-.homeTechOrbContainer {
-  position: relative;
-  width: 300px;
-  height: 300px;
-  border-radius: 50%;
-  overflow: hidden;
-}
-
-.homeTechAboutOverlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  pointer-events: none;
-  z-index: 10;
-}
-
-.homeTechAboutTitle {
-  font-size: 24px;
-  font-weight: 600;
-  color: #ffffff;
-  margin: 0;
-  text-align: center;
-  text-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
-  letter-spacing: 0.5px;
-  transition: all 0.3s ease;
-}
-
-.homeTechOrbContainer:hover .homeTechAboutTitle {
-  transform: scale(1.05);
-  text-shadow: 0 4px 20px rgba(255, 255, 255, 0.2);
+.homeTechCard:hover .homeTechCardName {
+  color: #1a1a1a;
 }
 
 /* Animations */
@@ -181,31 +185,21 @@
 
 /* Responsive Design */
 @media (max-width: 1024px) {
-  .homeTechMainLayout {
-    grid-template-columns: 1fr;
-    gap: 40px;
-  }
-  
-  .homeTechAboutSection {
-    position: static;
-    order: -1;
-  }
-    .homeTechOrbContainer {
-    width: 250px;
-    height: 250px;
-  }
-  
-  .homeTechAboutTitle {
-    font-size: 22px;
+  .homeTechGrid {
+    grid-template-columns: repeat(auto-fit, minmax(280px, 280px));
+    gap: 16px;
+    justify-content: flex-start;
   }
 }
 
 @media (max-width: 768px) {
   .homeTech {
-    padding: 80px 0;
+    height: 100vh;
+    padding: 0;
   }
 
   .homeTechContainer {
+    width: 90%;
     padding: 0 20px;
   }
 
@@ -217,63 +211,57 @@
     gap: 30px;
   }
   
-  .homeTechMainLayout {
-    gap: 30px;
-  }
-  
   .homeTechSkillsSection {
     gap: 30px;
   }
-
   .homeTechGrid {
-    gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 12px;
   }
 
   .homeTechCard {
-    padding: 12px 16px;
-    gap: 10px;
+    padding: 20px;
+    gap: 14px;
   }
+  
   .homeTechCardIcon {
-    width: 18px;
-    height: 18px;
+    height: 24px;
   }
 
   .homeTechCardName {
-    font-size: 14px;
-  }
-    .homeTechOrbContainer {
-    width: 200px;
-    height: 200px;
-  }
-  
-  .homeTechAboutTitle {
-    font-size: 18px;
+    font-size: 16px;
   }
 }
 
 @media (max-width: 480px) {
+  .homeTech {
+    height: 100vh;
+    padding: 0;
+  }
+
+  .homeTechContainer {
+    width: 95%;
+  }
+
   .homeTechGrid {
-    gap: 8px;
+    grid-template-columns: 1fr;
+    gap: 10px;
   }
 
   .homeTechCard {
-    padding: 10px 14px;
+    padding: 16px;
     font-size: 14px;
   }
+  
   .homeTechCardIcon {
-    width: 16px;
-    height: 16px;
+    height: 20px;
   }
 
   .homeTechCardName {
-    font-size: 13px;
-  }
-    .homeTechOrbContainer {
-    width: 150px;
-    height: 150px;
+    font-size: 15px;
   }
   
-  .homeTechAboutTitle {
-    font-size: 16px;
+  .homeTechCategoryTitle {
+    font-size: 20px;
   }
 }

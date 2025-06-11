@@ -148,7 +148,6 @@
   /* transition: all 0.3s cubic-bezier(0.19, 1, 0.22, 1); */
 }
 
-/* Navigation Hover Effects */
 .navbarContainerRightContainerLinksItem:hover .navbarContainerRightContainerLinksItemLinkText {
   transform: translateY(-5px);
 }

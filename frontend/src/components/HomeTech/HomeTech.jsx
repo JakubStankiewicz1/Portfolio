@@ -1,184 +1,65 @@
-import React, { useRef, useEffect } from 'react';
-import { gsap } from 'gsap';
+import React from 'react';
 import assets from '../../assets/assets.js';
-import Orb from '../Orb/Orb.jsx';
+import PixelCard from '../PixelCard/PixelCard.jsx';
 import "./homeTech.css";
 
 const HomeTech = () => {
-  const cardsRef = useRef([]);
-  const contentsRef = useRef([]);
-  const iconsRef = useRef([]);
-  const namesRef = useRef([]);
-  
-  useEffect(() => {
-    const handleMagnetic = (e, card, content, icon, name) => {
-      const boundingRect = card.getBoundingClientRect();
-      const relX = e.clientX - boundingRect.left - boundingRect.width / 2;
-      const relY = e.clientY - boundingRect.top - boundingRect.height / 2;
-
-      // Apply magnetic effect to content elements with GSAP
-      gsap.to(content, {
-        x: relX * 0.12,
-        y: relY * 0.12,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-
-      gsap.to(icon, {
-        x: relX * 0.15,
-        y: relY * 0.15,
-        scale: 1.1,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-
-      gsap.to(name, {
-        x: relX * 0.08,
-        y: relY * 0.08,
-        duration: 0.3,
-        ease: "power2.out"
-      });
-    };
-
-    const resetMagnetic = (content, icon, name) => {
-      gsap.to(content, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-
-      gsap.to(icon, {
-        x: 0,
-        y: 0,
-        scale: 1,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-
-      gsap.to(name, {
-        x: 0,
-        y: 0,
-        duration: 0.5,
-        ease: "power2.out"
-      });
-    };
-
-    // Add event listeners to all cards
-    cardsRef.current.forEach((card, index) => {
-      if (card && contentsRef.current[index] && iconsRef.current[index] && namesRef.current[index]) {
-        const content = contentsRef.current[index];
-        const icon = iconsRef.current[index];
-        const name = namesRef.current[index];
-
-        const mouseMoveHandler = (e) => handleMagnetic(e, card, content, icon, name);
-        const mouseLeaveHandler = () => resetMagnetic(content, icon, name);
-
-        card.addEventListener('mousemove', mouseMoveHandler);
-        card.addEventListener('mouseleave', mouseLeaveHandler);
-
-        // Store handlers for cleanup
-        card._mouseMoveHandler = mouseMoveHandler;
-        card._mouseLeaveHandler = mouseLeaveHandler;
-      }
-    });
-
-    // Cleanup
-    return () => {
-      cardsRef.current.forEach(card => {
-        if (card && card._mouseMoveHandler && card._mouseLeaveHandler) {
-          card.removeEventListener('mousemove', card._mouseMoveHandler);
-          card.removeEventListener('mouseleave', card._mouseLeaveHandler);
-        }
-      });
-    };
-  }, []);
   const techStacks = {
-    Languages: [
-      { name: "Python", icon: assets.pythonLogo },
-      { name: "Java", icon: assets.javaLogo },
-      { name: "JavaScript", icon: assets.javascriptLogo }
-    ],    Frontend: [
-      { name: "React", icon: assets.reactLogo },
+    DEVELOPMENT: [
+      { name: "JavaScript", icon: assets.javascriptLogo },
+      { name: "React.js", icon: assets.reactLogo },
       { name: "HTML5", icon: assets.htmlLogo },
       { name: "CSS3", icon: assets.cssLogo },
+      { name: "Python", icon: assets.pythonLogo },
+      { name: "Java", icon: assets.javaLogo },
       { name: "Tailwind CSS", icon: assets.tailwindLogo },
-      { name: "Vite", icon: assets.viteLogo },
-    ],
-    Backend: [
       { name: "Spring Boot", icon: assets.springBootLogo },
       { name: "Flask", icon: assets.flaskLogo },
     ],
-    Tools: [
+    "TOOLS & DESIGN": [
       { name: "Visual Studio Code", icon: assets.vsCode },
-      { name: "Postman", icon: assets.postmanLogo },
-      { name: "GitHub", icon: assets.githubLogo },
       { name: "Figma", icon: assets.figmaLogo },
+      { name: "Postman", icon: assets.postmanLogo },
       { name: "Jira", icon: assets.jiraLogo },
+      { name: "Vite", icon: assets.viteLogo },
     ],
-    Others: [
-      { name: "MySQL", icon: assets.javaLogo },
+    SERVICES: [
+      { name: "GitHub", icon: assets.githubLogo },
       { name: "Git", icon: assets.gitLogo },
-      
     ],
-    
   };
 
-  return (
-    <section className='homeTech'>
+  return (    <section className='homeTech'>
       <div className="homeTechContainer">
         <div className="homeTechHeader">
-          <h2 className="homeTechTitle">My Skills</h2>
-        </div>
-          <div className="homeTechContent">
-          <div className="homeTechMainLayout">
-            <div className="homeTechSkillsSection">
-              {Object.entries(techStacks).map(([category, technologies], categoryIndex) => (
-                <div key={category} className="homeTechCategory" style={{animationDelay: `${categoryIndex * 0.1}s`}}>
-                  <h3 className="homeTechCategoryTitle">{category}</h3>
-                  <div className="homeTechGrid">
-                    {technologies.map((tech, index) => {
-                      const cardIndex = categoryIndex * 20 + index; // Unique index for each card
-                      return (
-                        <div 
-                          key={tech.name} 
-                          className="homeTechCard homeTechCardMagnetic"
-                          style={{animationDelay: `${(categoryIndex * 0.1) + (index * 0.05)}s`}}
-                          ref={el => cardsRef.current[cardIndex] = el}
-                        >
-                          <div 
-                            className="homeTechCardContent"
-                            ref={el => contentsRef.current[cardIndex] = el}
-                          >
-                            <img 
-                              src={tech.icon}
-                              alt={tech.name}
-                              className="homeTechCardIcon"
-                              ref={el => iconsRef.current[cardIndex] = el}
-                            />
-                            <span 
-                              className="homeTechCardName"
-                              ref={el => namesRef.current[cardIndex] = el}
-                            >
-                              {tech.name}
-                            </span>
-                          </div>
-                        </div>
-                      );
-                    })}
-                  </div>
-                </div>
-              ))}
-            </div>
-              <div className="homeTechAboutSection">
-              <div className="homeTechAboutContent">                <div className="homeTechOrbContainer">
-                  <Orb hue={200} hoverIntensity={0.3} rotateOnHover={true} />
-                  <div className="homeTechAboutOverlay">
-                    <h3 className="homeTechAboutTitle">About Me</h3>
-                  </div>
+          <h2 className="homeTechTitle">TECHNOLOGIES I USE</h2>
+        </div><div className="homeTechContent">
+          <div className="homeTechSkillsSection">
+            {Object.entries(techStacks).map(([category, technologies], categoryIndex) => (
+              <div key={category} className="homeTechCategory" style={{animationDelay: `${categoryIndex * 0.1}s`}}>
+                <h3 className="homeTechCategoryTitle">{category}</h3>                <div className="homeTechGrid">
+                  {technologies.map((tech, index) => (
+                    <PixelCard 
+                      key={tech.name}
+                      variant="tech"
+                      className="pixel-tech-card"
+                      style={{animationDelay: `${(categoryIndex * 0.1) + (index * 0.05)}s`}}
+                    >
+                      <div className="homeTechCardContent">
+                        <img 
+                          src={tech.icon}
+                          alt={tech.name}
+                          className="homeTechCardIcon"
+                        />
+                        <span className="homeTechCardName">
+                          {tech.name}
+                        </span>
+                      </div>
+                    </PixelCard>
+                  ))}
                 </div>
               </div>
-            </div>
+            ))}
           </div>
         </div>
       </div>
@@ -187,5 +68,3 @@ const HomeTech = () => {
 }
 
 export default HomeTech
-
-// export default HomeTech
