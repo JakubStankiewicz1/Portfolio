@@ -157,12 +157,23 @@
   color: #ffffff;
 }
 
+.homeHeroVariableProximity {
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  display: block;
+}
+
 .homeHeroMainTitleTextLine {
   display: block;
+  line-height: 0.85;
 }
 
 .homeHeroMainTitleTextLine:first-child {
   color: #ffffff;
+  margin-bottom: 0.1em;
 }
 
 .homeHeroMainTitleTextLine:last-child {
@@ -194,6 +205,22 @@
   background: rgba(255, 255, 255, 0.2);
   border-color: rgba(255, 255, 255, 0.3);
   transform: translateY(-2px);
+}
+
+.homeHeroSkillsText {
+  font-size: 18px;
+  font-weight: 400;
+  color: #ffffff;
+  margin: 0;
+}
+
+.homeHeroSkillsVariableProximity {
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  display: inline;
 }
 
 /* Professional info on the right */
@@ -259,6 +286,24 @@
 .homeHeroProfessionalInfoTextHighlight {
   color: #ffffff;
   font-weight: 500;
+}
+
+.homeHeroProfessionalInfoVariableProximity {
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  display: inline;
+}
+
+.homeHeroProfessionalInfoVariableProximityHighlight {
+  color: #ffffff;
+  font-size: inherit;
+  font-weight: inherit;
+  line-height: inherit;
+  letter-spacing: inherit;
+  display: inline;
 }
 
 .homeHeroProfessionalInfoExperience {

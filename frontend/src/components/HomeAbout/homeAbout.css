@@ -143,10 +143,10 @@
   transition: transform 0.3s ease, box-shadow 0.3s ease;
 }
 
-.homeAboutImageWrapper:hover {
+/* .homeAboutImageWrapper:hover {
   transform: translateY(-8px);
   box-shadow: 0 35px 70px rgba(0, 0, 0, 0.15);
-}
+} */
 
 .homeAboutImage {
   width: 100%;
@@ -155,10 +155,10 @@
   object-position: center;
   transition: transform 0.3s ease;
 }
-
+/* kupi
 .homeAboutImageWrapper:hover .homeAboutImage {
   transform: scale(1.05);
-}
+} */
 
 .homeAboutImageOverlay {
   position: absolute;
@@ -166,7 +166,7 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(135deg, rgba(66, 153, 225, 0.1) 0%, rgba(159, 122, 234, 0.1) 100%);
+  /* background: linear-gradient(135deg, rgba(66, 153, 225, 0.1) 0%, rgba(159, 122, 234, 0.1) 100%); */
   opacity: 0;
   transition: opacity 0.3s ease;
 }
@@ -243,7 +243,7 @@
   letter-spacing: 0.5px;
 }
 
-.homeAboutDownloadButton:hover {
+/* .homeAboutDownloadButton:hover {
   box-shadow:
     rgba(0, 0, 0, 0.25) 0px 54px 55px,
     rgba(0, 0, 0, 0.12) 0px -12px 30px,
@@ -251,7 +251,7 @@
     rgba(0, 0, 0, 0.17) 0px 12px 13px,
     rgba(0, 0, 0, 0.09) 0px -3px 5px;
   transform: translateY(-2px);
-}
+} */
 
 .homeAboutDownload {
   position: absolute;
@@ -262,9 +262,11 @@
   max-width: 90%;
   margin: 0 auto;
   z-index: -1;
-  border-radius: 8px;
+  /* border-radius: 8px; */
+  border-bottom-left-radius: 8px;
+  border-bottom-right-radius: 8px;
   transform: translateY(0%);
-  background: linear-gradient(135deg, #4299e1, #63b3ed);
+  background-color: #01E056;
   border: solid 1px rgba(66, 153, 225, 0.3);
   transition: all 0.5s cubic-bezier(0.77, 0, 0.175, 1);
 }

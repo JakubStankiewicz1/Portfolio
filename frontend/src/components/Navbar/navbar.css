@@ -97,7 +97,7 @@
 
 /* Slide text to show only "Stankiewicz" on hover */
 .navbarContainerLeftLogoMagnetic:hover .navbarContainerLeftLogoMagneticTextSliderContent {
-  transform: translateX(-80px); /* Precisely calculated to show "Stankiewicz" in the expanded container */
+  transform: translateX(-70px); /* Precisely calculated to show "Stankiewicz" in the expanded container */
 }
 
 /* Navigation links */
