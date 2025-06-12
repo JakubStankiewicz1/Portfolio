@@ -65,7 +65,7 @@ const HomeAbout = () => {
 
                 <div className="homeAboutParagraphContainer">
                   <VariableProximity
-                    label="I thrive on creating modern, responsive web applications using cutting-edge technologies like React, JavaScript, and contemporary CSS frameworks. My approach combines security-first thinking with innovative design patterns to deliver exceptional user experiences."
+                    label="I thrive on creating modern, responsive web applications using cutting-edge technologies like React, JavaScript, and contemporary CSS frameworks."
                     fromFontVariationSettings="'wght' 400, 'opsz' 12"
                     toFontVariationSettings="'wght' 600, 'opsz' 48"
                     containerRef={aboutRef}
@@ -77,7 +77,7 @@ const HomeAbout = () => {
 
                 <div className="homeAboutParagraphContainer">
                   <VariableProximity
-                    label="Always eager to learn and embrace new challenges, I'm constantly expanding my skillset and exploring emerging technologies in the rapidly evolving world of web development."
+                    label="Always eager to learn and embrace new challenges, I'm constantly expanding my skillset and exploring emerging technologies."
                     fromFontVariationSettings="'wght' 400, 'opsz' 12"
                     toFontVariationSettings="'wght' 600, 'opsz' 48"
                     containerRef={aboutRef}
