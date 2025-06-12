@@ -53,7 +53,7 @@ const HomeAbout = () => {
               <div className="homeAboutDescription">
                 <div className="homeAboutParagraphContainer">
                   <VariableProximity
-                    label="Although I study Cybersecurity, my true passion lies web app development. I enjoy building engaging web interfaces and am currently looking for an opportunity to grow in this field through an internship or placement."
+                    label="Although I study Cybersecurity, my true passion mostly lies in web application development. I enjoy building engaging web interfaces and am currently looking for an opportunity to grow in this field through an internship or placement."
                     fromFontVariationSettings="'wght' 400, 'opsz' 12"
                     toFontVariationSettings="'wght' 600, 'opsz' 48"
                     containerRef={aboutRef}
@@ -77,7 +77,7 @@ const HomeAbout = () => {
 
                 <div className="homeAboutParagraphContainer">
                   <VariableProximity
-                    label="Always eager to learn and embrace new challenges, I'm constantly expanding my skillset and exploring emerging technologies."
+                    label="Always eager to learn and embrace new challenges, I'm constantly expanding my skill set and exploring emerging technologies."
                     fromFontVariationSettings="'wght' 400, 'opsz' 12"
                     toFontVariationSettings="'wght' 600, 'opsz' 48"
                     containerRef={aboutRef}
