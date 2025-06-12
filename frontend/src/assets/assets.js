@@ -36,6 +36,14 @@ import codingIcon from "./coding.png";
 
 import test from './test.png';
 
+import qitchenOne from './qitchenOne.png';
+
+import ueloceOne from './ueloceOne.png';
+
+import rentivaOne from './rentivaOne.png';
+
+import urbnctrlOne from './urbnctrlOne.png';
+
 export default {
     javaLogo,
     reactLogo,
@@ -55,5 +63,12 @@ export default {
     gitLogo,
     myPhoto,
     codingIcon,
+    qitchenOne,
+    ueloceOne,
+    rentivaOne,
+    urbnctrlOne,
+
+
+
     test
 }

@@ -1,4 +1,5 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
+import { useNavigate } from 'react-router-dom';
 import "./homeProjects.css";
 import assets from "../../assets/assets.js";
 
@@ -8,30 +9,35 @@ const HomeProjects = () => {
   const [itemHeight, setItemHeight] = useState(0);
   const listRef = useRef(null);
   const projectRefs = useRef([]);
-  const animationFrameRef = useRef(null);  const projects = [
+  const animationFrameRef = useRef(null);
+  const navigate = useNavigate();const projects = [
     {
-      name: "TWICE",
-      technologies: ["React", "JavaScript", "CSS", "Vite"],
+      name: "Qitchen",
+      technologies: ["React", "JavaScript", "Java", "Spring Boot"],
       color: "linear-gradient(135deg, #667eea 0%, #764ba2 100%)",
-      image: assets.test,
+      image: assets.qitchenOne,
+      route: "/qitchen"
     },
     {
-      name: "The Damai",
-      technologies: ["Java", "Spring Boot", "HTML", "CSS"],
+      name: "Ueloce",
+      technologies: ["React", "JavaScript"],
       color: "linear-gradient(135deg, #f093fb 0%, #f5576c 100%)",
-      image: assets.test,
+      image: assets.ueloceOne,
+      route: "/ueloce"
     },
     {
-      name: "FABRIC™",
-      technologies: ["React", "Tailwind", "JavaScript", "Figma"],
+      name: "Rentiva",
+      technologies: ["React", "JavaScript", "Java", "Spring Boot"],
       color: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
-      image: assets.test,
+      image: assets.rentivaOne,
+      route: "/rentiva"
     },
     {
-      name: "Aanstekelijk",
-      technologies: ["Python", "Flask", "HTML", "CSS", "Git"],
+      name: "URBNCTRL",
+      technologies: ["React", "JavaScript", "Java", "Spring Boot"],
       color: "linear-gradient(135deg, #43e97b 0%, #38f9d7 100%)",
-      image: assets.test,
+      image: assets.urbnctrlOne,
+      route: "/URBNCTRL"
     },
   ];
 
@@ -82,9 +88,11 @@ const HomeProjects = () => {
         cancelAnimationFrame(animationFrameRef.current);
       }
     };
-  }, []);
-  const handleMouseLeave = () => {
+  }, []);  const handleMouseLeave = () => {
     setHoveredProject(null);
+  };
+  const handleProjectClick = (project) => {
+    navigate(project.route);
   };
 
   const getPreviewBackgroundColor = (index) => {
@@ -104,15 +112,16 @@ const HomeProjects = () => {
           <span className="homeProjectsLabel">RECENT WORK</span>
         </div>
         <div className="homeProjectsList" ref={listRef} onMouseMove={handleMouseMove}>
-          {projects.map((project, index) => (
-            <div
+          {projects.map((project, index) => (            <div
               key={index}
               className="homeProjectsItem"
               ref={(el) => (projectRefs.current[index] = el)}
               onMouseEnter={() => handleMouseEnter(index)}
               onMouseLeave={handleMouseLeave}
-            >              <div className="homeProjectsItemContent">
-                <h3 className="homeProjectsItemName">{project.name}</h3>                <div className="homeProjectsItemTechnologies">
+              onClick={() => handleProjectClick(project)}
+            ><div className="homeProjectsItemContent">
+                <h3 className="homeProjectsItemName">{project.name}</h3>
+                <div className="homeProjectsItemTechnologies">
                   {project.technologies.map((tech, techIndex) => {
                     const techColor = getTechColor(tech);
                     return (
@@ -151,10 +160,13 @@ const HomeProjects = () => {
               style={{
                 backgroundColor: hoveredProject !== null ? getPreviewBackgroundColor(hoveredProject) : '#F1F1F1'
               }}
-            >
-              <div className="homeProjectsPreviewContentContainer">
+            >              <div className="homeProjectsPreviewContentContainer">
                 <div className="homeProjectsPreviewContentContainerImg">
-                  <img src={assets.test} alt="" className="homeProjectsPreviewContentContainerImgImage" />
+                  <img 
+                    src={hoveredProject !== null ? projects[hoveredProject].image : assets.test} 
+                    alt={hoveredProject !== null ? projects[hoveredProject].name : "Project"} 
+                    className="homeProjectsPreviewContentContainerImgImage" 
+                  />
                 </div>
               </div>
             </div>

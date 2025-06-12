@@ -9,11 +9,21 @@ import HomeContactMe from '../../components/HomeContactMe/HomeContactMe';
 const Home = () => {
   return (
     <div className='home'>
-      <HomeHero />
-      <HomeTech />
-      <HomeProjects />
-      <HomeAbout />
-      <HomeContactMe />
+      <div id="home">
+        <HomeHero />
+      </div>
+      <div id="tech">
+        <HomeTech />
+      </div>
+      <div id="work">
+        <HomeProjects />
+      </div>
+      <div id="about">
+        <HomeAbout />
+      </div>
+      <div id="contact">
+        <HomeContactMe />
+      </div>
     </div>
   )
 }

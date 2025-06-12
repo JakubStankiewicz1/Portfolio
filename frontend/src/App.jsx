@@ -7,6 +7,10 @@ import SmoothScroll from './components/SmoothScroll/SmoothScroll';
 
 // Import GSAP for animations
 import { gsap } from 'gsap';
+import Qitchen from './pages/Qitchen/Qitchen';
+import Ueloce from './pages/Ueloce/Ueloce';
+import Rentiva from './pages/Rentiva/Rentiva';
+import URBNCTRL from './pages/URBNCTRL/URBNCTRL';
 
 const App = () => {
   // Initialize GSAP on window object for global access
@@ -20,6 +24,10 @@ const App = () => {
 
         <Routes>
           <Route path="/" element={<Home />} />
+          <Route path="/qitchen" element={<Qitchen />} />
+          <Route path="/ueloce" element={<Ueloce />} />
+          <Route path="/rentiva" element={<Rentiva />} />
+          <Route path="/URBNCTRL" element={<URBNCTRL />} />
         </Routes>
       </div>
     </SmoothScroll>

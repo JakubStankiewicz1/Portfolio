@@ -1,11 +1,32 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './navbar.css';
+import { NavLink } from 'react-router-dom';
 
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const menuItemsRef = useRef([]);
+  // Smooth scroll function
+  const smoothScrollTo = (elementId) => {
+    const element = document.getElementById(elementId);
+    if (element) {
+      const navbarHeight = 80; // Height of navbar
+      const elementPosition = element.offsetTop - navbarHeight;
+      
+      window.scrollTo({
+        top: elementPosition,
+        behavior: 'smooth'
+      });
+    }
+  };
+
+  // Handle navigation clicks
+  const handleNavClick = (e, targetId) => {
+    e.preventDefault();
+    smoothScrollTo(targetId);
+    setMenuOpen(false); // Close mobile menu if open
+  };
 
   // Handle scroll events for navbar appearance
   useEffect(() => {
@@ -109,33 +130,48 @@ const Navbar = () => {
   return (
     <>
       <div className={`navbar ${scrolled ? 'navbarScrolled' : ''}`}>
-        <div className="navbarContainer">
-          {/* Left Part - Logo */}          <div className="navbarContainerLeft">
-            <div className="navbarContainerLeftLogoMagnetic">
+        <div className="navbarContainer">          {/* Left Part - Logo */}          
+          <div className="navbarContainerLeft">
+            <div 
+              className="navbarContainerLeftLogoMagnetic"
+              onClick={(e) => handleNavClick(e, 'home')}
+              style={{ cursor: 'pointer' }}
+            >
               <span className="navbarContainerLeftLogoMagneticCodePartCLetter">©</span>
-              <div className="navbarContainerLeftLogoMagneticTextSlider">
+              <NavLink to='/' className="navbarContainerLeftLogoMagneticTextSlider">
                 <span className="navbarContainerLeftLogoMagneticTextSliderContent">Code by Jakub Stankiewicz</span>
-              </div>
+              </NavLink>
             </div>
           </div>
 
           {/* Right Part - Navigation */}
-          <div className="navbarContainerRight">
-            <ul className="navbarContainerRightContainerLinks">
+          <div className="navbarContainerRight">            <ul className="navbarContainerRightContainerLinks">
               <li className="navbarContainerRightContainerLinksItem">
-                <a href="#work" className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic">
+                <a 
+                  href="#work" 
+                  className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic"
+                  onClick={(e) => handleNavClick(e, 'work')}
+                >
                   <span className="navbarContainerRightContainerLinksItemLinkText">Work</span>
                   <span className="navbarContainerRightContainerLinksItemLinkDot"></span>
                 </a>
               </li>
               <li className="navbarContainerRightContainerLinksItem">
-                <a href="#about" className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic">
+                <a 
+                  href="#about" 
+                  className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic"
+                  onClick={(e) => handleNavClick(e, 'about')}
+                >
                   <span className="navbarContainerRightContainerLinksItemLinkText">About</span>
                   <span className="navbarContainerRightContainerLinksItemLinkDot"></span>
                 </a>
               </li>
               <li className="navbarContainerRightContainerLinksItem">
-                <a href="#contact" className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic">
+                <a 
+                  href="#contact" 
+                  className="navbarContainerRightContainerLinksItemLink navbarContainerRightContainerLinksItemLinkMagnetic"
+                  onClick={(e) => handleNavClick(e, 'contact')}
+                >
                   <span className="navbarContainerRightContainerLinksItemLinkText">Contact</span>
                   <span className="navbarContainerRightContainerLinksItemLinkDot"></span>
                 </a>
@@ -162,38 +198,49 @@ const Navbar = () => {
               <div className="navbarMobileMenuContainerHeaderCloseMenuIcon"></div>
             </button>
           </div>
-          <div className="navbarMobileMenuContainerContent">
-            <ul className="navbarMobileMenuContainerContentLinks">
+          <div className="navbarMobileMenuContainerContent">            <ul className="navbarMobileMenuContainerContentLinks">
               <li className="navbarMobileMenuContainerContentLinksItem">
-                <a href="#home" className="navbarMobileMenuContainerContentLinksItemLink" onClick={() => setMenuOpen(false)}>
+                <a 
+                  href="#home" 
+                  className="navbarMobileMenuContainerContentLinksItemLink" 
+                  onClick={(e) => handleNavClick(e, 'home')}
+                >
                   <span className="navbarMobileMenuContainerContentLinksItemLinkDot"></span>
                   <span>Home</span>
                 </a>
               </li>
               <li className="navbarMobileMenuContainerContentLinksItem">
-                <a href="#work" className="navbarMobileMenuContainerContentLinksItemLink" onClick={() => setMenuOpen(false)}>
+                <a 
+                  href="#work" 
+                  className="navbarMobileMenuContainerContentLinksItemLink" 
+                  onClick={(e) => handleNavClick(e, 'work')}
+                >
                   <span>Work</span>
                 </a>
               </li>
               <li className="navbarMobileMenuContainerContentLinksItem">
-                <a href="#about" className="navbarMobileMenuContainerContentLinksItemLink" onClick={() => setMenuOpen(false)}>
+                <a 
+                  href="#about" 
+                  className="navbarMobileMenuContainerContentLinksItemLink" 
+                  onClick={(e) => handleNavClick(e, 'about')}
+                >
                   <span>About</span>
                 </a>
               </li>
               <li className="navbarMobileMenuContainerContentLinksItem">
-                <a href="#contact" className="navbarMobileMenuContainerContentLinksItemLink" onClick={() => setMenuOpen(false)}>
+                <a 
+                  href="#contact" 
+                  className="navbarMobileMenuContainerContentLinksItemLink" 
+                  onClick={(e) => handleNavClick(e, 'contact')}
+                >
                   <span>Contact</span>
                 </a>
               </li>
-            </ul>
-
-            <div className="navbarMobileMenuContainerContentSocials">
+            </ul>            <div className="navbarMobileMenuContainerContentSocials">
               <h5>SOCIALS</h5>
               <ul className="navbarMobileMenuContainerContentSocialsLinks">
-                <li><a href="#" target="_blank">Awwwards</a></li>
-                <li><a href="#" target="_blank">Instagram</a></li>
-                <li><a href="#" target="_blank">Twitter</a></li>
-                <li><a href="#" target="_blank">LinkedIn</a></li>
+                <li><a href="https://www.linkedin.com/in/kuba-stankiewicz-258381300/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+                <li><a href="https://github.com/JakubStankiewicz1" target="_blank" rel="noopener noreferrer">GitHub</a></li>
               </ul>
             </div>
           </div>

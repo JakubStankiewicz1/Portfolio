@@ -1,0 +1,224 @@
+/* Ueloce Project Page */
+.ueloce {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 40px 20px;
+}
+
+.ueloceContainer {
+  max-width: 800px;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.95);
+  border-radius: 24px;
+  padding: 60px 40px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.1);
+  backdrop-filter: blur(20px);
+  text-align: center;
+}
+
+.ueloceHeader {
+  margin-bottom: 50px;
+}
+
+.ueloceTitle {
+  font-size: clamp(3rem, 6vw, 4.5rem);
+  font-weight: 700;
+  color: #1a1a1a;
+  margin-bottom: 16px;
+  letter-spacing: -0.02em;
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.ueloceSubtitle {
+  font-size: 1.25rem;
+  color: #666;
+  font-weight: 500;
+  margin: 0;
+}
+
+.ueloceContent {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+}
+
+.ueloceUpdateNotice {
+  background: #fff3cd;
+  border: 2px solid #ffeaa7;
+  border-radius: 16px;
+  padding: 30px;
+  text-align: center;
+}
+
+.ueloceUpdateIcon {
+  font-size: 3rem;
+  margin-bottom: 16px;
+}
+
+.ueloceUpdateNotice h2 {
+  font-size: 1.5rem;
+  color: #856404;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.ueloceUpdateNotice p {
+  color: #856404;
+  font-size: 1.1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ueloceLinks {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.ueloceLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  padding: 16px 32px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  border: 2px solid transparent;
+}
+
+.ueloweLinkGithub {
+  background: #1a1a1a;
+  color: white;
+}
+
+.ueloweLinkGithub:hover {
+  background: #333;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(26, 26, 26, 0.3);
+}
+
+.ueloweLinkLive {
+  background: linear-gradient(135deg, #f093fb, #f5576c);
+  color: white;
+}
+
+.ueloweLinkLive:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(240, 147, 251, 0.4);
+  filter: brightness(1.1);
+}
+
+.ueloceServerInfo {
+  background: #e8f4fd;
+  border: 2px solid #90caf9;
+  border-radius: 16px;
+  padding: 24px;
+  text-align: center;
+}
+
+.ueloceServerIcon {
+  font-size: 2rem;
+  margin-bottom: 12px;
+}
+
+.ueloceServerInfo h3 {
+  font-size: 1.25rem;
+  color: #1565c0;
+  margin-bottom: 12px;
+  font-weight: 600;
+}
+
+.ueloceServerInfo p {
+  color: #1976d2;
+  font-size: 1rem;
+  margin: 0;
+  line-height: 1.6;
+}
+
+.ueloweTechStack {
+  text-align: center;
+}
+
+.ueloweTechStack h3 {
+  font-size: 1.25rem;
+  color: #1a1a1a;
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+.ueloweTechTags {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  justify-content: center;
+}
+
+.ueloweTechTag {
+  padding: 8px 16px;
+  background: rgba(240, 147, 251, 0.1);
+  border: 1px solid rgba(240, 147, 251, 0.3);
+  border-radius: 20px;
+  color: #f093fb;
+  font-size: 0.9rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+}
+
+.ueloweTechTag:hover {
+  background: rgba(240, 147, 251, 0.2);
+  transform: translateY(-2px);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .ueloceContainer {
+    padding: 40px 24px;
+  }
+  
+  .ueloceLinks {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .ueloceLink {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  
+  .ueloweTechTags {
+    gap: 8px;
+  }
+  
+  .ueloweTechTag {
+    font-size: 0.8rem;
+    padding: 6px 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .ueloce {
+    padding: 20px 16px;
+  }
+  
+  .ueloceContainer {
+    padding: 30px 20px;
+  }
+  
+  .ueloceUpdateNotice {
+    padding: 20px;
+  }
+  
+  .ueloceUpdateIcon {
+    font-size: 2rem;
+  }
+}
