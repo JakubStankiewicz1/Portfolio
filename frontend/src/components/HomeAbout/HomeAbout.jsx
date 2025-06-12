@@ -53,7 +53,7 @@ const HomeAbout = () => {
               <div className="homeAboutDescription">
                 <div className="homeAboutParagraphContainer">
                   <VariableProximity
-                    label="As a dedicated Cybersecurity student with a passion for web development, I'm actively seeking opportunities as a Frontend Developer. My academic background in cybersecurity provides me with a unique perspective on building secure, robust web applications."
+                    label="Although I study Cybersecurity, my true passion lies web app development. I enjoy building engaging web interfaces and am currently looking for an opportunity to grow in this field through an internship or placement."
                     fromFontVariationSettings="'wght' 400, 'opsz' 12"
                     toFontVariationSettings="'wght' 600, 'opsz' 48"
                     containerRef={aboutRef}
