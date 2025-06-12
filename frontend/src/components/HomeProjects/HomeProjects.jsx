@@ -162,8 +162,7 @@ const HomeProjects = () => {
               }}
             >              <div className="homeProjectsPreviewContentContainer">
                 <div className="homeProjectsPreviewContentContainerImg">
-                  <img 
-                    src={hoveredProject !== null ? projects[hoveredProject].image : assets.test} 
+                  <img
                     alt={hoveredProject !== null ? projects[hoveredProject].name : "Project"} 
                     className="homeProjectsPreviewContentContainerImgImage" 
                   />
