@@ -13,7 +13,7 @@
   padding: 0 40px;
   background: transparent;
   z-index: 1000;
-  background-color: #999D9E;
+  background-color: #E8E8E3;
 }
   /* display: flex;
   position: absolute;
@@ -49,7 +49,7 @@
   cursor: pointer;
   position: relative;
   font-size: 18px;
-  color: #ffffff;
+  color: #6B645C;
   font-weight: 500;
   letter-spacing: -0.03em;
   white-space: nowrap;
@@ -87,7 +87,7 @@
   display: flex;
   align-items: center;
   text-decoration: none;
-  color: #fff;
+  color: #6B645C;
 }
 
 .navbarContainerLeftLogoMagneticTextSliderContent {
@@ -126,7 +126,7 @@
 }
 
 .navbarContainerRightContainerLinksItemLink {
-  color: #ffffff;
+  color: #6B645C;
   text-decoration: none;
   font-size: 16px;
   position: relative;
@@ -148,7 +148,7 @@
   bottom: -8px;
   width: 5px;
   height: 5px;
-  background-color: #ffffff;
+  background-color: #6B645C;
   border-radius: 50%;
   /* transform: translateX(-50%) scale(0); */
   opacity: 0;
@@ -197,7 +197,7 @@
   display: block;
   width: 100%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #6B645C;
   transform-origin: center;
   transition: transform 0.3s ease, opacity 0.3s ease;
 }
@@ -275,7 +275,7 @@
   left: 0;
   width: 100%;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #6B645C;
 }
 
 .navbarMobileMenuContainerHeaderCloseMenuIcon:before {
@@ -307,7 +307,7 @@
   display: flex;
   align-items: center;
   font-size: 32px;
-  color: #ffffff;
+  color: #6B645C;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
@@ -319,7 +319,7 @@
 .navbarMobileMenuContainerContentLinksItemLinkDot {
   width: 8px;
   height: 8px;
-  background-color: #ffffff;
+  background-color: #6B645C;
   border-radius: 50%;
   margin-right: 10px;
   display: inline-block;
@@ -351,7 +351,7 @@
 }
 
 .navbarMobileMenuContainerContentSocialsLinks a {
-  color: #ffffff;
+  color: #6B645C;
   text-decoration: none;
   font-size: 16px;
   transition: opacity 0.3s ease;
@@ -392,7 +392,7 @@
 
 body {
   background-color: #1c1d20;
-  color: #ffffff;
+  color: #6B645C;
   overflow-x: hidden;
 }
 

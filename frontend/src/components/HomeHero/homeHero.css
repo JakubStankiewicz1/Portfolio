@@ -2,7 +2,7 @@
   position: relative;
   width: 100vw;
   margin-left: calc(-50vw + 50%);
-  background: #999D9E;
+  background: #E8E8E3;
   height: calc(100vh - 80px);
   overflow: hidden;
   display: flex;
@@ -94,71 +94,63 @@
   font-size: 17px;
 }
 
-/* Main content container */
-.homeHeroContent {
+.homeHero {
   position: relative;
-  z-index: 2;
-  text-align: center;
-  max-width: 800px;
-  margin: 0 auto;
+  width: 100vw;
+  margin-left: calc(-50vw + 50%);
+  background: #E8E8E3;
+  height: calc(100vh - 80px);
+  overflow: hidden;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
 }
 
-/* Scrolling name text */
-.homeHeroScrollingText {
+/* Background with subtle gradient */
+.homeHeroBackground {
   position: absolute;
-  top: 140px;
-  left: 50%;
-  transform: translateX(-50%);
-  width: 100vw;
-  overflow: hidden;
-  white-space: nowrap;
-  opacity: 0.08;
-  font-size: clamp(80px, 12vw, 200px);
-  font-weight: 700;
-  letter-spacing: -0.05em;
-  color: #ffffff;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
   z-index: 1;
 }
 
-.homeHeroScrollingTextContent {
-  display: inline-block;
-  animation: scrollText 20s linear infinite;
-}
-
-.homeHeroScrollingTextContent span {
-  margin-right: 100px;
-}
-
-@keyframes scrollText {
-  0% {
-    transform: translateX(0);
-  }
-  100% {
-    transform: translateX(-33.333%);
-  }
-}
-
-/* Main title */
-.homeHeroMainTitle {
-  margin-bottom: 40px;
-  animation: slideUpFade 1s ease-out 0.3s both;
+/* Main content container - 98% width for perfect layout */
+.homeHeroContent {
   position: relative;
   z-index: 2;
-  margin-top: -150px;
+  width: 98%;
+  max-width: 1600px;
+  margin: 0 auto;
+  padding: 0 20px;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Large title - exactly like in design */
+.homeHeroMainTitle {
+  margin-bottom: 80px;
+  text-align: left;
 }
 
 .homeHeroMainTitleText {
   margin: 0;
-  font-size: clamp(48px, 6vw, 80px);
-  font-weight: 700;
-  line-height: 0.9;
-  letter-spacing: -0.03em;
-  text-align: center;
-  color: #ffffff;
+  font-size: clamp(80px, 9vw, 200px);
+  font-weight: 900;
+  line-height: 0.85;
+  letter-spacing: -0.02em;
+  color: #1A1A1A;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+  width: 100%;
 }
 
 .homeHeroVariableProximity {
-  color: #ffffff;
+  color: #171717;
   font-size: inherit;
   font-weight: inherit;
   line-height: inherit;
@@ -166,153 +158,234 @@
   display: block;
 }
 
-.homeHeroMainTitleTextLine {
-  display: block;
-  line-height: 0.85;
+/* Frontend Developer subtitle */
+.homeHeroSubtitle {
+  margin-top: 20px;
+  text-align: left;
 }
 
-.homeHeroMainTitleTextLine:first-child {
-  color: #ffffff;
-  margin-bottom: 0.1em;
-}
-
-.homeHeroMainTitleTextLine:last-child {
-  color: #ffffff;
-}
-
-/* Skills showcase */
-.homeHeroSkills {
-  display: flex;
-  justify-content: center;
-  gap: 20px;
-  flex-wrap: wrap;
-  animation: slideUpFade 1s ease-out 0.6s both;
-  margin-top: 30px;
-}
-
-.homeHeroSkillsItem {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 25px;
-  padding: 10px 20px;
-  font-size: 14px;
-  font-weight: 500;
-  color: #ffffff;
-  transition: all 0.3s ease;
-}
-
-.homeHeroSkillsItem:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  transform: translateY(-2px);
-}
-
-.homeHeroSkillsText {
-  font-size: 18px;
-  font-weight: 400;
-  color: #ffffff;
+.homeHeroSubtitleText {
   margin: 0;
+  font-size: 18px;
+  font-weight: 500;
+  color: #6B645C;
+  font-family: 'Inter', sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
 }
 
-.homeHeroSkillsVariableProximity {
-  color: #ffffff;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  display: inline;
+/* Three column layout - perfect centering */
+.homeHeroLayout {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  gap: 80px;
+  align-items: center;
+  width: 100%;
+  max-width: 100%;
+  position: relative;
 }
 
-/* Professional info on the right */
-.homeHeroProfessionalInfo {
-  position: absolute;
-  top: 40%;
-  right: 60px;
-  /* transform: translateY(-50%); */
+/* LEFT COLUMN - positioned normally in grid */
+.homeHeroLeftColumn {
   display: flex;
   flex-direction: column;
-  align-items: flex-end;
-  gap: 30px;
-  z-index: 3;
-  animation: slideInRight 1s ease-out 0.9s both;
-
-  /* background-color: red; */
+  gap: 40px;
+  justify-self: start;
+  align-self: end;
   width: 100%;
-  height: 100%;
+  max-width: 400px;
 }
 
-.homeHeroProfessionalInfoArrow {
-  width: 50px;
-  height: 50px;
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
+.homeHeroArrowDown {
+  width: 40px;
+  height: 40px;
+  color: #666;
+  transform: rotate(-45deg);
+}
+
+.homeHeroDescription {
+  max-width: 400px;
+  width: 100%;
+}
+
+.homeHeroDescription p {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+.homeHeroDescriptionText {
+  font-size: 18px;
+  line-height: 1.6;
+  color: #666;
+  margin: 0 0 16px 0;
+  font-weight: 400;
+  font-family: 'Inter', sans-serif;
+}
+
+.homeHeroDescription p:last-child {
+  margin-bottom: 0;
+}
+
+.homeHeroContactButton {
+  align-self: flex-start;
+}
+
+/* Contact button - elegant hover effect inspired by Uiverse.io */
+.homeHeroContactBtn {
+  outline: none;
+  cursor: pointer;
+  border: none;
+  padding: 16px 32px;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 12px;
+  letter-spacing: 0.05em;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  border-radius: 50px;
+  overflow: hidden;
+  background: #2D2D2D;
+  color: #FFFFFF;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  outline: 1px solid #393632;
+}
+
+.homeHeroContactBtn span {
+  position: relative;
+  z-index: 10;
+  transition: color 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.homeHeroContactBtn svg {
+  position: relative;
+  z-index: 10;
+  transition: all 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+  flex-shrink: 0;
+}
+
+.homeHeroContactBtn:hover span {
+  color: #2D2D2D;
+}
+
+.homeHeroContactBtn:hover svg {
+  color: #2D2D2D;
+  transform: translate(2px, -2px);
+}
+
+.homeHeroContactBtn::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 120%;
+  height: 100%;
+  background: #E8E8E3;
+  z-index: 0;
+  left: -10%;
+  transform: skew(30deg) translateX(-100%);
+  transition: transform 0.4s cubic-bezier(0.3, 1, 0.8, 1);
+}
+
+.homeHeroContactBtn:hover::before {
+  transform: skew(30deg) translateX(0%);
+}
+
+/* CENTER COLUMN - PERFECTLY CENTERED IMAGE */
+.homeHeroCenterColumn {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: auto;
+  position: relative;
+}
+
+.homeHeroImageContainer {
+  position: relative;
+  width: 300px;
+  height: 400px;
+  border-radius: 16px;
+  overflow: hidden;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+  margin: 0 auto;
+}
+
+.homeHeroImage {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  filter: grayscale(100%);
+  transition: filter 0.3s ease;
+}
+
+/* .homeHeroImage:hover {
+  filter: grayscale(0%);
+} */
+
+.homeHeroImagePlaceholder {
+  width: 100%;
+  height: 100%;
+  background: #E8E8E8;
   display: flex;
   align-items: center;
   justify-content: center;
-  cursor: pointer;
-  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
-  color: #ffffff;
+  border-radius: 16px;
 }
 
-.homeHeroProfessionalInfoArrow:hover {
-  background: rgba(255, 255, 255, 0.2);
-  border-color: rgba(255, 255, 255, 0.3);
-  color: #ffffff;
-  transform: scale(1.1);
+.homeHeroImagePlaceholderContent {
+  color: #999;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 16px;
 }
 
-.homeHeroProfessionalInfoArrowRotated {
-  transform: rotate(180deg);
+.homeHeroImagePlaceholderContent svg {
+  opacity: 0.6;
 }
 
-.homeHeroProfessionalInfoArrowRotated:hover {
-  transform: rotate(180deg) scale(1.1);
+/* RIGHT COLUMN - positioned normally in grid */
+.homeHeroRightColumn {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  justify-self: end;
+  align-self: end;
+  width: 100%;
+  max-width: 300px;
 }
 
-.homeHeroProfessionalInfoText {
+.homeHeroAvailability {
   text-align: right;
-  /* background-color: red; */
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
 }
 
-.homeHeroProfessionalInfoTextMain {
-  font-size: 28px;
-  font-weight: 600;
-  margin-bottom: 5px;
-  color: #ffffff;
-}
-
-.homeHeroProfessionalInfoTextSub {
-  font-size: 18px;
-  font-weight: 400;
-  color: #ffffff;
-}
-
-.homeHeroProfessionalInfoTextHighlight {
-  color: #ffffff;
+.homeHeroAvailabilityText {
+  font-size: 14px;
   font-weight: 500;
+  color: #6B645C;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
 }
 
-.homeHeroProfessionalInfoVariableProximity {
-  color: #ffffff;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  display: inline;
-}
-
-.homeHeroProfessionalInfoVariableProximityHighlight {
-  color: #ffffff;
-  font-size: inherit;
-  font-weight: inherit;
-  line-height: inherit;
-  letter-spacing: inherit;
-  display: inline;
-}
-
-.homeHeroProfessionalInfoExperience {
-  display: none;
+.homeHeroAvailabilityDate {
+  font-size: 80px;
+  font-weight: 900;
+  color: #393632;
+  line-height: 0.8;
+  letter-spacing: -0.02em;
+  font-family: 'Inter', sans-serif;
 }
 
 /* Floating elements for visual appeal */
@@ -447,65 +520,308 @@
   }
 }
 
-/* Responsive design */
+/* Location badge - keeping original positioning */
+.homeHeroLocationBadge {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: #1a1a1a;
+  width: 280px;
+  height: 90px;
+  z-index: 3;
+  animation: floatUp 2s ease-out;
+  border-radius: 0 45px 45px 0;
+  padding: 0 25px 0 35px;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+}
+
+.homeHeroLocationBadgeIcon {
+  color: #1a1a1a;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50px;
+  height: 50px;
+  background: #f5f5f5;
+  border-radius: 50%;
+  animation: rotateGlobe 8s linear infinite;
+  flex-shrink: 0;
+}
+
+@keyframes rotateGlobe {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.homeHeroLocationBadgeText {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  flex: 1;
+}
+
+.homeHeroLocationBadgeTextSmall {
+  font-size: 16px;
+  font-weight: 500;
+  line-height: 1.2;
+  color: #ffffff;
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+.homeHeroLocationBadgeTextSmall:first-child {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.homeHeroLocationBadgeTextSmall:nth-child(2) {
+  font-weight: 400;
+  opacity: 0.8;
+}
+
+.homeHeroLocationBadgeTextSmall:last-child {
+  font-weight: 600;
+  opacity: 1;
+  font-size: 17px;
+}
+
+/* Scroll indicator */
+.homeHeroScrollIndicator {
+  position: absolute;
+  bottom: 40px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+}
+
+.homeHeroScrollArrow {
+  width: 50px;
+  height: 50px;
+  background: rgba(26, 26, 26, 0.1);
+  border: 1px solid rgba(26, 26, 26, 0.2);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+  color: #1a1a1a;
+}
+
+.homeHeroScrollArrow:hover {
+  background: rgba(26, 26, 26, 0.2);
+  border-color: rgba(26, 26, 26, 0.3);
+  transform: scale(1.1);
+}
+
+.homeHeroScrollArrow svg {
+  transition: transform 0.4s cubic-bezier(0.19, 1, 0.22, 1);
+}
+
+.homeHeroScrollArrowRotated svg {
+  transform: rotate(180deg);
+}
+
+.homeHeroScrollArrowRotated:hover svg {
+  transform: rotate(180deg) scale(1.1);
+}
+
+.homeHeroDescriptionText {
+  font-size: 32px;
+  font-weight: 500;
+  line-height: 33px;
+  color: #6B645C;
+}
+
+/* Animations */
+@keyframes floatUp {
+  0% {
+    opacity: 0;
+    transform: translateY(50px) translateY(-50%);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0) translateY(-50%);
+  }
+}
+
+@keyframes slideUpFade {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Floating elements for visual appeal */
+.homeHeroFloatingElements {
+  display: none;
+}
+
+/* Responsive design - perfect for all devices with 98% width */
+@media (max-width: 1400px) {
+  .homeHeroContent {
+    width: 98%;
+    padding: 0 30px;
+  }
+  
+  .homeHeroLayout {
+    gap: 60px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .homeHeroContent {
+    width: 98%;
+    padding: 0 20px;
+  }
+  
+  .homeHeroLayout {
+    gap: 40px;
+  }
+  
+  .homeHeroImageContainer {
+    width: 250px;
+    height: 320px;
+  }
+  
+  .homeHeroAvailabilityDate {
+    font-size: 70px;
+  }
+  
+  .homeHeroDescription {
+    max-width: 350px;
+  }
+}
+
 @media (max-width: 768px) {
-  .homeHeroLocationBadge {
-    left: 20px;
-    padding: 10px 16px;
-    gap: 10px;
+  .homeHeroContent {
+    padding: 0 20px;
+    justify-content: flex-start;
+    padding-top: 40px;
   }
-
-  .homeHeroProfessionalInfo {
-    right: 20px;
-    gap: 15px;
+  
+  .homeHeroMainTitle {
+    margin-bottom: 60px;
+    text-align: center;
   }
-
-  .homeHeroProfessionalInfoText {
-    writing-mode: horizontal-tb;
-    text-orientation: unset;
+  
+  .homeHeroMainTitleText {
+    font-size: clamp(60px, 10vw, 120px);
   }
-
-  .homeHeroProfessionalInfoTextMain {
-    font-size: 20px;
+  
+  .homeHeroSubtitle {
+    text-align: center;
   }
-
-  .homeHeroProfessionalInfoTextSub {
-    font-size: 14px;
+  
+  .homeHeroSubtitleText {
+    font-size: 16px;
+    letter-spacing: 0.3px;
   }
-
-  .homeHeroBottomCta {
-    bottom: 20px;
-    flex-direction: column;
-    gap: 10px;
+  
+  .homeHeroLayout {
+    grid-template-columns: 1fr;
+    gap: 50px;
+    text-align: center;
   }
-
-  .homeHeroSkills {
-    gap: 15px;
+  
+  .homeHeroLeftColumn {
+    order: 2;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
   }
-
-  .homeHeroSkillsItem {
-    padding: 6px 14px;
-    font-size: 13px;
+  
+  .homeHeroCenterColumn {
+    order: 1;
+    justify-self: center;
+  }
+  
+  .homeHeroRightColumn {
+    order: 3;
+    align-items: center;
+    justify-self: center;
+    align-self: center;
+  }
+  
+  .homeHeroAvailability {
+    text-align: center;
+  }
+  
+  .homeHeroDescription {
+    max-width: 100%;
+    text-align: center;
+  }
+  
+  .homeHeroImageContainer {
+    width: 280px;
+    height: 360px;
+    margin: 0 auto;
+  }
+  
+  .homeHeroArrowDown {
+    align-self: center;
+  }
+  
+  .homeHeroContactButton {
+    align-self: center;
   }
 }
 
 @media (max-width: 480px) {
-  .homeHeroLocationBadge {
-    position: static;
-    transform: none;
-    align-self: flex-start;
-    margin: 20px;
-  }
-
-  .homeHeroProfessionalInfo {
-    position: static;
-    transform: none;
-    flex-direction: row;
-    justify-content: center;
-    margin-top: 40px;
-  }
-
   .homeHeroContent {
     padding: 0 20px;
+    padding-top: 20px;
+  }
+  
+  .homeHeroMainTitle {
+    margin-bottom: 40px;
+  }
+  
+  .homeHeroMainTitleText {
+    font-size: clamp(40px, 12vw, 80px);
+  }
+  
+  .homeHeroSubtitleText {
+    font-size: 14px;
+    letter-spacing: 0.2px;
+  }
+  
+  .homeHeroLayout {
+    gap: 40px;
+  }
+  
+  .homeHeroImageContainer {
+    width: 220px;
+    height: 280px;
+    margin: 0 auto;
+  }
+  
+  .homeHeroAvailabilityDate {
+    font-size: 48px;
+  }
+  
+  .homeHeroContactBtn {
+    padding: 14px 28px;
+    font-size: 13px;
+  }
+  
+  .homeHeroDescription {
+    max-width: 100%;
+  }
+  
+  .homeHeroLocationBadge {
+    display: none;
   }
 }
