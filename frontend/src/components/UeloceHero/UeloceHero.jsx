@@ -33,7 +33,7 @@ const UeloceHero = () => {
           {/* Circular GitHub Button */}
           <div className="circular-github-button">
             <Magnet padding={30} magnetStrength={1.5} activeTransition="transform 0.2s ease-out" inactiveTransition="transform 0.4s ease-in-out">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://github.com/JakubStankiewicz1/Ueloce" target="_blank" rel="noopener noreferrer">
                 Github repo
               </a>
             </Magnet>
@@ -42,7 +42,7 @@ const UeloceHero = () => {
           {/* Circular Live Site Button */}
           <div className="circular-live-button">
             <Magnet padding={30} magnetStrength={1.5} activeTransition="transform 0.2s ease-out" inactiveTransition="transform 0.4s ease-in-out">
-              <a href="#" target="_blank" rel="noopener noreferrer">
+              <a href="https://ueloce.onrender.com/" target="_blank" rel="noopener noreferrer">
                 Live site ↗
               </a>
             </Magnet>

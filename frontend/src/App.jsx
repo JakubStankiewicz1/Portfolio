@@ -4,6 +4,7 @@ import Home from './pages/Home/Home';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar/Navbar';
 import SmoothScroll from './components/SmoothScroll/SmoothScroll';
+import ScrollToTop from './components/ScrollToTop/ScrollToTop';
 
 // Import GSAP for animations
 import { gsap } from 'gsap';
@@ -16,10 +17,10 @@ const App = () => {
   // Initialize GSAP on window object for global access
   useEffect(() => {
     window.gsap = gsap;
-  }, []);
-  return (
+  }, []);  return (
     <SmoothScroll>
       <div className='app'>
+        <ScrollToTop />
         <Navbar />
 
         <Routes>

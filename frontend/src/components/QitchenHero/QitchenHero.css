@@ -3,7 +3,7 @@
   width: 100vw;
   margin-left: calc(-50vw + 50%);
   background: #E8E8E3;
-  min-height: 100vh;
+  /* min-height: 100vh; */
   font-family: "Roboto", sans-serif;
   padding: 60px 0;
 }
@@ -68,22 +68,35 @@
 .hero-bottom {
   position: relative;
   margin-top: 40px;
+  width: 100%;
+  height: 100%;
+
+  /* background-color: red !important; */
 }
 
-/* Large Project Image */
+/* Large Project Image - Full Width No Border Radius */
 .large-project-image {
   position: relative;
   width: 100%;
+  height: 100%;
   /* height: 500px; */
-  /* border-radius: 16px; */
   overflow: hidden;
-  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15);
+  /* border-radius: 0; Remove border radius for full edge-to-edge display */
+  /* box-shadow: 0 20px 60px rgba(0, 0, 0, 0.15); */
 }
 
 .large-project-image img {
   width: 100%;
   height: 100%;
   object-fit: cover;
+  object-position: center center;
+  border-radius: 0; /* Ensure image has no border radius */
+  display: block;
+}
+
+.large-project-image-img {
+  width: 100%;
+  height: 800px;
 }
 
 /* Text Overlay on Image */
@@ -166,9 +179,9 @@
   .QitchenHeroContainer {
     padding: 0 30px;
   }
-  
-  .large-project-image {
+    .large-project-image {
     height: 400px;
+    border-radius: 0; /* Keep full width on tablet */
   }
   
   .circular-live-button {
@@ -197,9 +210,9 @@
   .info-section {
     max-width: 100%;
   }
-  
-  .large-project-image {
+    .large-project-image {
     height: 300px;
+    border-radius: 0; /* Keep full width on mobile */
   }
     .circular-live-button {
     width: 100px;
@@ -229,43 +242,10 @@
   .hero-info-sections {
     margin-bottom: 40px;
   }
-  
-  .large-project-image {
+    .large-project-image {
     height: 250px;
-    border-radius: 12px;
+    border-radius: 0; /* Keep full width on small mobile */
   }
-}
-
-/* Animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero-title h1 {
-  animation: fadeInUp 1s ease-out 0.2s both;
-}
-
-.hero-info-sections {
-  animation: fadeInUp 1s ease-out 0.4s both;
-}
-
-.large-project-image {
-  animation: fadeInUp 1s ease-out 0.6s both;
-}
-
-.circular-live-button {
-  animation: fadeInUp 1s ease-out 0.8s both;
-}
-
-.circular-github-button {
-  animation: fadeInUp 1s ease-out 0.9s both;
 }
 
 /* Animations */

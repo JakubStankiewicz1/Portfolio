@@ -21,6 +21,9 @@ const SmoothScroll = ({ children }) => {
       lerp: 0.08, // Lower lerp for more dramatic smooth effect (0.1 = default)
     });    lenisRef.current = lenis;
 
+    // Make lenis globally available for ScrollToTop component
+    window.lenis = lenis;
+
     // Animation frame loop
     function raf(time) {
       lenis.raf(time);
@@ -44,12 +47,11 @@ const SmoothScroll = ({ children }) => {
       }
     };
 
-    window.addEventListener('keydown', handleKeyDown);
-
-    // Cleanup
+    window.addEventListener('keydown', handleKeyDown);    // Cleanup
     return () => {
       window.removeEventListener('resize', handleResize);
       window.removeEventListener('keydown', handleKeyDown);
+      window.lenis = null; // Clean up global reference
       lenis.destroy();
     };
   }, []);

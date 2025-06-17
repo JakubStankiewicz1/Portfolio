@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import './navbar.css';
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate, useLocation } from 'react-router-dom';
 import { FaRegCopyright } from "react-icons/fa";
 
 const Navbar = () => {
@@ -8,6 +8,9 @@ const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
   const navbarRef = useRef(null);
   const menuItemsRef = useRef([]);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   // Smooth scroll function
   const smoothScrollTo = (elementId) => {
     const element = document.getElementById(elementId);
@@ -15,20 +18,33 @@ const Navbar = () => {
       const navbarHeight = 80; // Height of navbar
       const elementPosition = element.offsetTop - navbarHeight;
       
-      window.scrollTo({
-        top: elementPosition,
-        behavior: 'smooth'
-      });
+      // Use Lenis for smooth scrolling if available, otherwise fallback to native
+      if (window.lenis) {
+        window.lenis.scrollTo(elementPosition, {
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t))
+        });
+      } else {
+        window.scrollTo({
+          top: elementPosition,
+          behavior: 'smooth'
+        });
+      }
     }
   };
-
-  // Handle navigation clicks
+  // Handle navigation clicks with intelligent routing
   const handleNavClick = (e, targetId) => {
     e.preventDefault();
-    smoothScrollTo(targetId);
     setMenuOpen(false); // Close mobile menu if open
+    
+    // If we're on the home page, just scroll to the section
+    if (location.pathname === '/') {
+      smoothScrollTo(targetId);
+    } else {
+      // If we're on a different page, navigate to home with hash, the useEffect will handle scrolling
+      navigate(`/#${targetId}`);
+    }
   };
-
   // Handle scroll events for navbar appearance
   useEffect(() => {
     const handleScroll = () => {
@@ -45,6 +61,18 @@ const Navbar = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, []);
+
+  // Handle section scrolling when returning to home page
+  useEffect(() => {
+    if (location.pathname === '/' && location.hash) {
+      const targetId = location.hash.substring(1); // Remove the # from hash
+      const timeoutId = setTimeout(() => {
+        smoothScrollTo(targetId);
+      }, 300); // Give more time for page to fully load
+      
+      return () => clearTimeout(timeoutId);
+    }
+  }, [location]);
   // Magnetic hover effect
   useEffect(() => {
     const handleMagnetic = (e, element) => {
@@ -131,11 +159,10 @@ const Navbar = () => {
   return (
     <>
       <div className={`navbar ${scrolled ? 'navbarScrolled' : ''}`}>
-        <div className="navbarContainer">          {/* Left Part - Logo */}          
-          <div className="navbarContainerLeft">
+        <div className="navbarContainer">          {/* Left Part - Logo */}            <div className="navbarContainerLeft">
             <div 
               className="navbarContainerLeftLogoMagnetic"
-              onClick={(e) => handleNavClick(e, 'home')}
+              onClick={() => navigate('/')}
               style={{ cursor: 'pointer' }}
             >
               <span className="navbarContainerLeftLogoMagneticCodePartCLetter">©</span>
@@ -204,7 +231,7 @@ const Navbar = () => {
                 <a 
                   href="#home" 
                   className="navbarMobileMenuContainerContentLinksItemLink" 
-                  onClick={(e) => handleNavClick(e, 'home')}
+                  onClick={() => navigate('/')}
                 >
                   <span className="navbarMobileMenuContainerContentLinksItemLinkDot"></span>
                   <span>Home</span>
@@ -237,7 +264,7 @@ const Navbar = () => {
                   <span>Contact</span>
                 </a>
               </li>
-            </ul>            <div className="navbarMobileMenuContainerContentSocials">
+            </ul><div className="navbarMobileMenuContainerContentSocials">
               <h5>SOCIALS</h5>
               <ul className="navbarMobileMenuContainerContentSocialsLinks">
                 <li><a href="https://www.linkedin.com/in/kuba-stankiewicz-258381300/" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
