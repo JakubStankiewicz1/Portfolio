@@ -36,13 +36,59 @@ import codingIcon from "./coding.png";
 
 import test from './test.png';
 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 import qitchenOne from './qitchenOne.png';
+import qitchenTwo from './qitchenTwo.png';
+
+
+
+
+
 
 import ueloceOne from './ueloceOne.png';
 
+
+
+
+
+
+
+
+
 import rentivaOne from './rentivaOne.png';
 
+
+
+
+
+
+
+
 import urbnctrlOne from './urbnctrlOne.png';
+
+
+
+
+import notebook from './notebook.png';
 
 export default {
     javaLogo,
@@ -67,6 +113,10 @@ export default {
     ueloceOne,
     rentivaOne,
     urbnctrlOne,
+    qitchenTwo,
+
+
+    notebook,
 
 
 
