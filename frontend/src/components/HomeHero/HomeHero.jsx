@@ -5,6 +5,7 @@ import { BsImage } from "react-icons/bs";
 import { IoChevronDown } from "react-icons/io5";
 import { HiGlobeAlt } from "react-icons/hi";
 import "./homeHero.css";
+import assets from "../../assets/assets";
 
 const HomeHero = () => {
   const [scrolled, setScrolled] = useState(false);
@@ -13,8 +14,7 @@ const HomeHero = () => {
   // Generate dynamic availability date
   const getAvailabilityDate = () => {
     const now = new Date();
-    const months = ['JAN', 'FEB', 'MAR', 'APR', 'MAY', 'JUN', 
-                   'JUL', 'AUG', 'SEP', 'OCT', 'NOV', 'DEC'];
+    const months = ["JAN", "FEB", "MAR", "APR", "MAY", "JUN", "JUL", "AUG", "SEP", "OCT", "NOV", "DEC"];
     const currentMonth = months[now.getMonth()];
     const currentYear = now.getFullYear().toString().slice(-2);
     return `${currentMonth}'${currentYear}`;
@@ -103,12 +103,11 @@ const HomeHero = () => {
               </button>
             </div>
           </div>
-
           {/* Center column - Image */}
           <div className="homeHeroCenterColumn">
             <div className="homeHeroImageContainer">
               <img
-                src="/src/assets/myPhoto.jpg"
+                src={assets.myPhoto}
                 alt="Profile"
                 className="homeHeroImage"
                 onError={(e) => {
@@ -123,8 +122,8 @@ const HomeHero = () => {
               </div>
             </div>
           </div>
-
-          {/* Right column */}          <div className="homeHeroRightColumn">
+          {/* Right column */}{" "}
+          <div className="homeHeroRightColumn">
             <div className="homeHeroAvailability">
               <div className="homeHeroAvailabilityText">AVAILABLE FOR WORK</div>
               <div className="homeHeroAvailabilityDate">{getAvailabilityDate()}</div>
