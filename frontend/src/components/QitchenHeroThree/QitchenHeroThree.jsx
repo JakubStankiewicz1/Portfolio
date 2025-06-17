@@ -1,5 +1,5 @@
 import React from 'react';
-import './QitchenHeroThree.css';
+import './qitchenHeroThree.css';
 import assets from '../../assets/assets';
 
 const QitchenHeroThree = () => {
